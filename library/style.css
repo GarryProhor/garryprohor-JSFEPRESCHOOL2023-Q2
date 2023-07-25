@@ -299,6 +299,157 @@ body{
     margin-left: 0;
 }
 
+.season{
+    width: 100%;
+    margin-top: 40px;
+}
+.season-title{
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+.season-inputs{
+    display: flex;
+}
+.season-item{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-right: 90px;
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.season-input{
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 1px solid var(--color-black-1);
+}
+.season-item input[type=radio]{
+    height: 17px;
+    width: 17px;
+    margin-right: 20px;
+    -webkit-appearance: none;
+    border-radius: 50%;
+}
+.season-item input[type=radio]:checked{
+    background: var(--color-black-1);
+    border: 3px solid #FFF;
+    outline: 1px solid var(--color-black-1);
+}
+.season-item input[type=radio]:disabled{
+    outline: 1px solid var(--color-black-1);
+}
+
+.season-item:last-child{
+    margin-right: 0;
+}
+.season-active{
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+.season-active input{
+    color: black;
+    border: 1px solid var(--color-black-1);
+}
+.cards{
+    width: 100%;
+    margin-top: 40px;
+}
+.card-section{
+    width: 100%;
+    display: flex;
+}
+.card-item{
+    position: relative;
+    width: 550px;
+    height: 556px;
+    border: 1px solid var(--color-black-1);
+    margin-right: 260px;
+}
+.card-item:last-child{
+    margin-right: 0;
+}
+.card-pick{
+    font-family: var(--font-forum);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 200% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin: 15px 0 20px 20px;
+}
+.card-pick hr{
+    content: '';
+    background: var(--color-brawn);
+    width: 60px;
+    height: 1px;
+}
+.card-title{
+    color: #000;
+    font-family: var(--font-inter);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 40px; /* 266.667% */
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin: 0 0 20px 20px;
+}
+.card-description{
+    width: 355px;
+    color: #000;
+    font-family: var(--font-inter);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 40px; /* 266.667% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin: 0 0 15px 20px;
+}
+.card-button{
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+    width: 75px;
+    height: 30px;
+    flex-shrink: 0;
+    text-align: center;
+    font-family: var(--font-inter);;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1px;
+    border: 1px solid var(--color-black-1);
+    padding: 7px 27px;
+}
+.card-button-own{
+    cursor: inherit;
+    width: 75px;
+    height: 30px;
+    color: var(--color-brawn);
+    border-radius: 2px;
+    border: 1px solid var(--color-brawn);
+}
+.card-right{
+    position: absolute;
+    width: 200px;
+    height: 300px;
+    left: 390px;
+    top: 255px;
+}
 .footer{
     width: 100%;
     height: 250px;
