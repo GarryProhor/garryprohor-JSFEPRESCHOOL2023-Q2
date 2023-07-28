@@ -206,14 +206,12 @@ body{
     background-size: cover;
 }
 .banner-title{
-    padding: 220px 0 160px 40px;
+    padding: 220px 0 160px 0;
 }
 .banner-text{
-    display: flex;
     width: 600px;
-    height: 220px;
     padding: 35px 40px;
-    align-items: center;
+    margin-left: 0;
     color: var(--color-white);
     background: var(--color-black-2);
     text-align: center;
@@ -227,7 +225,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 40px 20px;
 }
 .section-title{
     width: 100%;
@@ -274,7 +272,7 @@ body{
 .about-list{
     display: flex;
     justify-content: center;
-    margin: 20px 0 40px 0;
+    margin: 20px 0 50px 0;
 }
 .about-item{
     width: 450px;
@@ -427,8 +425,13 @@ body{
     font-weight: var(--font-wheith-2);
     line-height: 40px; /* 266.667% */
     letter-spacing: 2px;
-    text-transform: uppercase;
     margin: 0 0 20px 20px;
+}
+.book-title{
+    text-transform: uppercase;
+}
+.book-author{
+    text-transform: capitalize;
 }
 .card-description{
     width: 355px;
@@ -495,7 +498,13 @@ body{
     font-weight: var(--font-wheith-1);
     line-height: 35px; /* 200% */
     letter-spacing: 2px;
-    padding: 40px 0;
+    padding: 47px 0;
+}
+.coffee-description span:first-child{
+    text-transform: lowercase;
+}
+.coffee-description span:last-child{
+    text-transform: uppercase;
 }
 .coffee-menu{
     width: 100%;
@@ -602,7 +611,7 @@ body{
 .contact-info{
     width: 100%;
     height: 414px;
-    margin: 40px 0;
+    margin-top: 40px;
     display: flex;
     justify-content: space-between;
 }
@@ -745,7 +754,7 @@ body{
     margin-bottom: 35px;
 }
 .reader-text{
-    width: 456px;
+    width: 462px;
     text-align: right;
     font-family: var(--font-inter);
     font-size: 20px;
@@ -794,7 +803,7 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 .footer-top p{
     font-family: var(--font-inter);
@@ -815,7 +824,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
 }
 .footer-middle p{
     text-align: right;
@@ -831,6 +840,9 @@ body{
 .socials li{
     margin-right: 15px;
 }
+.socials li:nth-child(2){
+    margin-right: 25px;
+}
 .socials li:last-child{
     margin-right: 0;
 }
@@ -840,7 +852,7 @@ body{
     align-items: center;
     justify-content: space-between;
     border-top: 1px solid var(--color-white);
-    padding-top: 35px;
+    padding-top: 45px;
 }
 .footer-bottom p{
     font-family: var(--font-inter);
