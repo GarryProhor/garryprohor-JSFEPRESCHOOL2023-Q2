@@ -489,10 +489,6 @@ body{
     top: 255px;
     transition: all 0.5s;
 }
-.card-right img:hover{
-    width: 160px;
-    height: 300px;
-}
 
 .coffee-description{
     width: 100%;
