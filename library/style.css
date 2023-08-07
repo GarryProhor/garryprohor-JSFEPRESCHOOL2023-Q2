@@ -191,13 +191,41 @@ body{
 .icon-profile img{
     width: 16px;
 }
+.burger{
+    display: none;
+    position: relative;
+    cursor: pointer;
+    margin-left: 40px;
+}
+.burger p{
+    content: "";
+    background: white;
+    width: 45px;
+    height: 2px;
+}
+.burger p:after{
+    position: absolute;
+    top: 10px;
+    content: "";
+    background: white;
+    width: 45px;
+    height: 2px;
+}
+.burger p:before{
+    position: absolute;
+    bottom: 10px;
+    content: "";
+    background: white;
+    width: 45px;
+    height: 2px;
+}
 .container{
     width: 100%;
     min-height: calc(100vh - 250px);
 }
 .section-banner{
     height: 600px;
-    background: url(assets/Welcome.png)  no-repeat;
+    background: url(assets/Welcome.png) center center;
 }
 .banner{
     height: 300px;
@@ -866,3 +894,18 @@ body{
 .footer-bottom p a{
     color: var(--color-white);
 }
+
+
+@media screen and (max-width: 1024px) {
+    .navbar{
+        display: none;
+    }
+    .burger{
+        display: block;
+    }
+}
+@media screen and (max-width: 768px) {
+
+}
+
+
