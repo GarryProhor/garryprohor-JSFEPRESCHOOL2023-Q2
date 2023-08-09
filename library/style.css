@@ -282,7 +282,7 @@ body{
     justify-content: center;
     align-items: center;
 }
-.section-content p{
+.section-text{
     text-align: center;
     font-family: var(--font-inter);
     font-size: 20px;
@@ -299,7 +299,7 @@ body{
 }
 .about-list{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     margin: 20px 0 50px 0;
 }
 .about-item{
@@ -309,6 +309,20 @@ body{
 }
 .about-item:last-child{
     margin-right: 0;
+}
+.about-3{
+    margin-right: 0;
+}
+
+.arrow-left{
+    cursor: pointer;
+    margin-right: 58px;
+    display: none;
+}
+.arrow-right{
+    cursor: pointer;
+    margin-left: 58px;
+    display: none;
 }
 .pagination{
     width: 78px;
@@ -337,6 +351,9 @@ body{
 .pagination-item:first-child{
     background-color: var(--color-brawn);
     margin-left: 0;
+}
+.pagination-4, .pagination-5{
+    display: none;
 }
 
 .season{
@@ -895,7 +912,35 @@ body{
     color: var(--color-white);
 }
 
+@media screen and (max-width: 1420px) {
+    .about-2{
+        margin-right: 0;
+    }
+    .about-3{
+        display: none;
+    }
+    .arrow-left, .arrow-right{
+        display: block;
 
+    }
+    .pagination{
+        width: 104px;
+    }
+    .pagination-4{
+        display: block;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .about-2{
+        display: none;
+    }
+    .pagination{
+        width: 130px;
+    }
+    .pagination-5{
+        display: block;
+    }
+}
 @media screen and (max-width: 1024px) {
     .navbar{
         display: none;
@@ -904,5 +949,13 @@ body{
         display: block;
     }
 }
+@media screen and (max-width: 768px) {
+    .section-text span {
+        display: block;
+        margin-top: 10px;
+    }
+}
+
+
 
 
