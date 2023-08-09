@@ -430,14 +430,16 @@ body{
 }
 .cards{
     width: 100%;
-    margin-top: 40px;
 }
 .card-section{
     width: 100%;
     display: flex;
+    margin-top: 40px;
 }
 .card-item{
     position: relative;
+    display: flex;
+    justify-content: space-between;
     width: 550px;
     height: 556px;
     border: 1px solid var(--color-black-1);
@@ -912,7 +914,7 @@ body{
     color: var(--color-white);
 }
 
-@media screen and (max-width: 1420px) {
+@media screen and (max-width: 1430px) {
     .about-2{
         margin-right: 0;
     }
@@ -928,6 +930,34 @@ body{
     }
     .pagination-4{
         display: block;
+    }
+    .card-item {
+        margin-right: 140px;
+    }
+}
+@media screen and (max-width: 1310px) {
+    .card-item {
+        margin-right: 100px;
+    }
+}
+@media screen and (max-width: 1272px) {
+    .card-section {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-item {
+        margin-bottom: 40px;
+    }
+    .card-item:first-child{
+        margin-right: 0;
+    }
+    .card-item:last-child{
+        margin-bottom: 0;
+    }
+    .season-inputs {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 28px;
     }
 }
 @media screen and (max-width: 1080px) {
