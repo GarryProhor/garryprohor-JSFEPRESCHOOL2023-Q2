@@ -1156,6 +1156,9 @@ body {
         display: flex;
         flex-direction: column;
     }
+    .right-menu{
+        margin-top: 40px;
+    }
 
     .left-title-menu {
         justify-content: flex-start;
