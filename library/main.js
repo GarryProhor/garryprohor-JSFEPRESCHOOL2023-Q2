@@ -1,3 +1,19 @@
+document.querySelector('.burger').addEventListener('click', () => {
+    const burger = document.querySelector('.burger');
+    burger.classList.toggle('active');
+    const burgerList = document.querySelector('.burger-list');
+    if (burger.classList.contains('active')) {
+        burgerList.style.right = '0';
+    } else {
+        burgerList.style.right = '-332px';
+    }
+});
+
+
+
+
+
+
 console.log("Вёрстка валидная +10\n" +
     "Вёрстка семантическая +16\n" +
     "В коде страницы присутствуют следующие элементы (указано минимальное количество, может быть больше):\n" +
@@ -31,3 +47,4 @@ console.log("Вёрстка валидная +10\n" +
     "обязательное требование к интерактивности: плавное изменение внешнего вида элемента при наведении и клике не влияет на соседние элементы +2.\n" +
     "PIXEL PERFECT  - соблюден.\n" +
     "ИТОГО - 100/100");
+
