@@ -2,10 +2,22 @@ document.querySelector('.burger').addEventListener('click', () => {
     const burger = document.querySelector('.burger');
     burger.classList.toggle('active');
     const burgerList = document.querySelector('.burger-list');
+    const burgerLines = document.querySelector('.burger-lines');
+    const buggerClose = document.querySelector('.burger-close');
     if (burger.classList.contains('active')) {
-        burgerList.style.right = '0';
+       if(window.screen.width > 978){
+            burgerList.style.right = '128px';
+        }else{
+            burgerList.style.right = '106px';
+        }
+        burgerList.style.top = '90px';
+        burgerLines.style.display = 'none';
+        buggerClose.style.display = 'block';
     } else {
         burgerList.style.right = '-332px';
+        burgerList.style.top = '90px';
+        buggerClose.style.display = 'none';
+        burgerLines.style.display = 'block';
     }
 });
 

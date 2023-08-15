@@ -224,7 +224,7 @@ body {
     width: 45px;
     height: 2px;
     background-color: white;
-    margin-bottom: 7px;
+    margin-bottom: 7px;;
 }
 
 .burger-lines span:nth-child(1) {
@@ -240,7 +240,7 @@ body {
     top: 0;
     right: -332px;
     width: 332px;
-    height: 100%;
+    height: 480px;
     background-color: black; /* Черный фон */
     color: white; /* Белый цвет текста */
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
@@ -272,36 +272,18 @@ body {
     font-weight: 400;
     line-height: 50px; /* 250% */
 }
-.burger-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 40px;
-    margin-bottom: 40px;
-}
 
-.icon-profile-burger{
-    width: 28px;
-    height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-white);
-    border-radius: 50%;
-    cursor: pointer;
-    margin-right: 40px;
-}
-.icon-profile-burger img {
-    width: 16px;
-}
 
 .burger-close {
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     width: 25px;
     height: 25px;
+    margin-top: 25px;
+    margin-right: 20px;
 }
 
 .burger-close::before,
@@ -328,13 +310,14 @@ body {
 }
 
 .container {
-    width: 100%;
     min-height: calc(100vh - 250px);
 }
 
 .section-banner {
+    width: 100%;
     height: 600px;
-    background: url(assets/Welcome.png) center center;
+    background: url(assets/Welcome.png) center;
+    background-size: cover;
 }
 
 .banner {
@@ -439,13 +422,15 @@ body {
 
 .arrow-left {
     cursor: pointer;
-    margin-right: 58px;
+    margin-right: 65px;
+    margin-top: 50px;
     display: none;
 }
 
 .arrow-right {
     cursor: pointer;
-    margin-left: 58px;
+    margin-left: 65px;
+    margin-top: 50px;
     display: none;
 }
 
@@ -455,6 +440,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 5px;
+    margin-top: -15px;
 }
 
 .pagination-item {
@@ -697,7 +684,7 @@ body {
     font-size: 20px;
     font-style: normal;
     font-weight: var(--font-wheith-1);
-    line-height: 35px; /* 200% */
+    line-height: 39px; /* 200% */
     letter-spacing: 2px;
     padding: 47px 0;
 }
@@ -757,6 +744,11 @@ body {
     width: 100%;
     display: flex;
     justify-content: space-between;
+}
+.left-title-menu {
+    margin-top: 39px;
+}
+.right-title-menu {
     margin-top: 40px;
 }
 
@@ -907,8 +899,8 @@ body {
     font-style: normal;
     font-weight: var(--font-wheith-1);
     line-height: normal;
-    letter-spacing: 1px;
     text-transform: inherit;
+    letter-spacing: 0.6px;
     margin-bottom: 30px;
 }
 
@@ -1010,7 +1002,8 @@ body {
     font-weight: var(--font-wheith-1);
     line-height: 40px; /* 200% */
     letter-spacing: 0.4px;
-    margin-bottom: 35px;
+    margin-top: 5px;
+    margin-bottom: 40px;
 }
 
 .buttons {
@@ -1120,12 +1113,16 @@ body {
 }
 
 .footer-bottom p {
+    display: block;
     font-family: var(--font-inter);
     font-size: 20px;
     font-style: normal;
     font-weight: var(--font-wheith-1);
     line-height: 20px; /* 100% */
     letter-spacing: 2px;
+}
+.footer-bottom p:last-child {
+    text-align: right;
 }
 
 .footer-bottom p a {
@@ -1172,7 +1169,8 @@ body {
     }
 
     .card-item {
-        margin-bottom: 40px;
+        margin-bottom: 38px;
+        margin-left: -40px;
     }
 
     .card-item:first-child {
@@ -1216,6 +1214,9 @@ body {
 }
 
 @media screen and (max-width: 1080px) {
+    .about-1{
+        margin-right: -10px;
+    }
     .about-2 {
         display: none;
     }
@@ -1230,6 +1231,9 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
+    .wrapper{
+        width: 768px;
+    }
     .navbar {
         display: none;
     }
@@ -1238,18 +1242,22 @@ body {
         display: flex;
     }
     .burger-lines {
-        /* Измените цвет на белый */
         background-color: white;
     }
 
     .burger-lines span {
-        /* Измените цвет на светлый цвет, например, #f0f0f0 */
         background-color: #f0f0f0;
+    }
+    .coffee-description{
+        text-align: center;
+        line-height: 39px; /* 200% */
+        letter-spacing: 2px;
     }
 
     .coffee-menu {
         justify-content: space-between;
         flex-direction: column;
+        margin-top: -5px;
     }
     .icon-profile{
         margin-right: 40px;
@@ -1261,7 +1269,7 @@ body {
         flex-direction: column;
     }
     .right-menu{
-        margin-top: 40px;
+        margin-top: 35px;
     }
 
     .left-title-menu {
@@ -1283,12 +1291,11 @@ body {
     }
 }
 
-@media screen and (max-width: 768px ) {
-    .section-text {
-        width: 728px !important;
-        text-align: center;
-    }
+@media screen and (width: 768px) {
+
 }
+
+
 
 
 
