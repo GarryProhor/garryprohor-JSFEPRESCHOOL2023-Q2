@@ -223,6 +223,7 @@ body {
 .burger-lines span {
     position: absolute;
     content: "";
+    ;
     width: 45px;
     height: 2px;
     display: block;
