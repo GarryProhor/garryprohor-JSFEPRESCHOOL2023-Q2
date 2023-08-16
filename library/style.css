@@ -223,24 +223,11 @@ body {
 .burger-lines span {
     position: absolute;
     content: "";
-    ;
     width: 45px;
     height: 2px;
     display: block;
     background-color: white;
 }
-
-
-.burger-lines > span:nth-child(1) {
-    top: 40px;
-}
-
-.burger-lines > span:nth-child(2) {
-    top: 5px;
-}
-
-
-
 .burger-lines span:nth-child(1) {
     cursor: pointer;
     top: -10px;
