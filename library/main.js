@@ -5,11 +5,7 @@ document.querySelector('.burger').addEventListener('click', () => {
     const burgerLines = document.querySelector('.burger-lines');
     const buggerClose = document.querySelector('.burger-close');
     if (burger.classList.contains('active')) {
-       if(window.screen.width > 978){
-            burgerList.style.right = '128px';
-        }else{
-            burgerList.style.right = '106px';
-        }
+        burgerList.style.right = '0';
         burgerList.style.top = '90px';
         burgerLines.style.display = 'none';
         buggerClose.style.display = 'block';
