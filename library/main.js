@@ -94,6 +94,27 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// Получаем ссылки на элементы DOM
+const profileIcon = document.querySelector('.icon-profile');
+const profileMenu = document.querySelector('.drop-menu');
+
+// При клике на иконку профиля, показываем/скрываем выпадающее меню
+profileIcon.addEventListener('click', () => {
+    if (profileMenu.style.display === 'block') {
+        profileMenu.style.display = 'none';
+    } else {
+        profileMenu.style.display = 'block';
+    }
+});
+
+// Закрываем выпадающее меню при клике вне него
+document.addEventListener('click', (event) => {
+    if (!profileMenu.contains(event.target) && event.target !== profileIcon) {
+        profileMenu.style.display = 'none';
+    }
+});
+
+
 
 
 
