@@ -380,6 +380,7 @@ body {
 }
 
 .section-content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -408,19 +409,15 @@ body {
     display: flex;
     justify-content: space-between;
     margin: 20px 0 50px 0;
+    overflow: hidden;
 }
 
 .about-item {
-    width: 450px;
     height: 550px;
     margin-right: 25px;
 }
 
 .about-item:last-child {
-    margin-right: 0;
-}
-
-.about-3 {
     margin-right: 0;
 }
 
@@ -1134,10 +1131,6 @@ body {
 }
 
 @media (max-width: 1430px) {
-    .about-2 {
-        margin-right: 0;
-    }
-
     .about-3 {
         display: none;
     }
@@ -1218,6 +1211,10 @@ body {
 }
 
 @media (max-width: 1080px) {
+    .about-item {
+        width: 100%; /* Одна картина на всю ширину контейнера */
+        margin-right: 0;
+    }
     .about-1{
         margin-right: -10px;
     }
