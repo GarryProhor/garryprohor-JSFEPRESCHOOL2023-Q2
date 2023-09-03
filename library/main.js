@@ -114,6 +114,43 @@ document.addEventListener('click', (event) => {
     }
 });
 
+document.addEventListener("DOMContentLoaded", function() {
+    // Получаем ссылки на элементы модального окна и фона
+    const modalLog = document.querySelector(".modal");
+    const overlay = document.querySelector(".overlay");
+
+// Получаем ссылку на кнопку закрытия модального окна
+    const closeButton = document.querySelector(".close-button");
+
+// Получаем ссылку на элемент "Log In"
+    const logInLink = document.querySelector(".profile-link.profile-text");
+
+// Функция для открытия модального окна
+    function openModal() {
+        modalLog.style.display = "block";
+        overlay.style.display = "block";
+    }
+
+// Функция для закрытия модального окна
+    function closeModal() {
+        modalLog.style.display = "none";
+        overlay.style.display = "none";
+    }
+
+// Добавляем обработчик события для кнопки закрытия
+    closeButton.addEventListener("click", closeModal);
+
+// Добавляем обработчик события для открытия модального окна при клике на "Log In"
+    logInLink.addEventListener("click", openModal);
+
+// Добавляем обработчик события для закрытия модального окна при клике вне него (по фону)
+    overlay.addEventListener("click", function(event) {
+        if (event.target === overlay) {
+            closeModal();
+        }
+    });
+});
+
 
 
 
