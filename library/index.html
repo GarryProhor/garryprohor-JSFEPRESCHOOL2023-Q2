@@ -34,8 +34,8 @@
                 </div>
                 <div class="drop-menu">
                     <p class="profile-title">Profile</p>
-                    <p class="profile-link profile-text">Log In</p>
-                    <p class="profile-link logout">Register</p>
+                    <p class="profile-link profile-log-in">Log In</p>
+                    <p class="profile-link profile-register">Register</p>
                 </div>
                 <div class="drop-menu drop-profile">
                     <p class="profile-title">Profile</p>
@@ -70,8 +70,8 @@
             <div class="banner">
                 <!-- Затемненный фон и модальное окно -->
                 <div class="overlay" id="overlay"></div>
-                <div class="modal">
-                    <span class="close-button" id="close-button"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                <div class="modal" >
+                    <span class="close-button"><svg xmlns="http://www.w3.org/2000/svg" width="15"
                                                                       height="15" viewBox="0 0 19 19" fill="none">
                       <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
                       <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
@@ -86,6 +86,28 @@
                             <button class="modal-button" type="submit">Log In</button>
                         </form>
                         <p class="modal-bottom">Don't have an account? <a href="#" class="modal-link">Register</a></p>
+                    </div>
+                </div>
+                <div class="modal-register">
+                    <span class="close-button" id="close-button-register"><svg xmlns="http://www.w3.org/2000/svg" width="15"
+                                                                      height="15" viewBox="0 0 19 19" fill="none">
+                      <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
+                      <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
+                    </svg></span>
+                    <div class="modal-content">
+                        <p class="modal-title">REGISTER</p>
+                        <form class="modal-form" action="post">
+                            <p class="modal-text">First name</p>
+                            <input type="text" class="modal-input">
+                            <p class="modal-text">Last name</p>
+                            <input type="text" class="modal-input">
+                            <p class="modal-text">E-mail</p>
+                            <input type="email" class="modal-input">
+                            <p class="modal-text">Password</p>
+                            <input type="password" class="modal-input">
+                            <button class="modal-button" type="submit">Log In</button>
+                        </form>
+                        <p class="modal-bottom">Already have an account? <a href="#" class="modal-link">Login</a></p>
                     </div>
                 </div>
                 <div class="banner-title">
