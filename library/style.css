@@ -685,6 +685,8 @@ body {
     height: 17px;
     border-radius: 50%;
     border: 1px solid var(--color-black-1);
+    -webkit-appearance: none;
+    border-radius: 50%;
 }
 
 .season-item input[type=radio] {
@@ -693,6 +695,8 @@ body {
     margin-right: 20px;
     -webkit-appearance: none;
     border-radius: 50%;
+    transition: background 0.3s, border 0.3s; /* Добавлены анимации перехода */
+    border: 1px solid var(--color-black-1);
 }
 
 .season-item input[type=radio]:checked {
@@ -701,18 +705,12 @@ body {
     outline: 1px solid var(--color-black-1);
 }
 
-.season-item input[type=radio]:disabled {
-    outline: 1px solid var(--color-black-1);
+/* Добавлены стили для подсветки активного элемента */
+.season-item:hover input[type=radio]:not(:checked) {
+    background: #EEE;
 }
 
-.season-item input:after {
-    content: "";
-    position: absolute;
-    left: -5px;
-    top: -5px;
-    width: 22px;
-    height: 22px;;
-}
+
 
 .season-item:last-child {
     margin-right: 0;
@@ -726,10 +724,19 @@ body {
     line-height: normal;
 }
 
-.season-active input {
-    color: black;
-    border: 1px solid var(--color-black-1);
+/* Убраны стили .season-active input */
+
+
+/* Сначала скрываем все карточки */
+.cards {
+    display: none;
 }
+
+/* Для активного сезона показываем карточки */
+.cards.active {
+    display: block;
+}
+
 
 .cards {
     width: 100%;
@@ -853,6 +860,21 @@ body {
     top: 255px;
     transition: all 0.5s;
 }
+
+/* Класс для анимации затухания */
+.fade-out {
+    opacity: 0;
+    transform: translateX(-20px); /* Дополнительное смещение для плавности */
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+/* Класс для анимации проявления */
+.fade-in {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
 
 .coffee-description {
     width: 100%;
@@ -1475,6 +1497,12 @@ body {
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
+    }
+    .season-navigation {
+        position: sticky;
+        top: 0;
+        background-color: white;
+        z-index: 100;
     }
 }
 @media (max-width: 730px) {

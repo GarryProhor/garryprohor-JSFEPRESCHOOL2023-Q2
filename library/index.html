@@ -70,9 +70,9 @@
             <div class="banner">
                 <!-- Затемненный фон и модальное окно -->
                 <div class="overlay" id="overlay"></div>
-                <div class="modal" >
+                <div class="modal">
                     <span class="close-button"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-                                                                      height="15" viewBox="0 0 19 19" fill="none">
+                                                    height="15" viewBox="0 0 19 19" fill="none">
                       <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
                       <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
                     </svg></span>
@@ -89,8 +89,10 @@
                     </div>
                 </div>
                 <div class="modal-register">
-                    <span class="close-button" id="close-button-register"><svg xmlns="http://www.w3.org/2000/svg" width="15"
-                                                                      height="15" viewBox="0 0 19 19" fill="none">
+                    <span class="close-button" id="close-button-register"><svg xmlns="http://www.w3.org/2000/svg"
+                                                                               width="15"
+                                                                               height="15" viewBox="0 0 19 19"
+                                                                               fill="none">
                       <path d="M2 16.8507L17 2.00003" stroke="#0C0C0E" stroke-width="3"/>
                       <path d="M2 2.14926L17 17" stroke="#0C0C0E" stroke-width="3"/>
                     </svg></span>
@@ -161,445 +163,474 @@
                 <hr>
             </div>
             <div class="season">
-                <p class="season-title">
-                    Pick favorites of season
-                </p>
-                <div class="season-inputs">
-                    <div class="season-item season-active">
+                <div class="season-navigation">
+                    <p class="season-title">
+                        Pick favorites of season
+                    </p>
+                    <div class="season-inputs">
+                        <div class="season-item season-active">
+                            <input class="season-input" type="radio" id="winter" value="winter" name="drone" checked
+                                   data-season="winter">
+                            <label class="season-text" for="winter">Winter</label>
+                        </div>
+                        <div class="season-item">
+                            <input type="radio" id="spring" value="spring" name="drone" data-season="spring">
+                            <label class="season-text" for="spring">Spring</label>
+                        </div>
+                        <div class="season-item">
+                            <input type="radio" id="summer" value="summer" name="drone" data-season="summer">
+                            <label class="season-text" for="summer">Summer</label>
+                        </div>
+                        <div class="season-item">
+                            <input type="radio" id="autumn" value="autumn" name="drone" data-season="autumn">
+                            <label class="season-text" for="autumn">Autumn</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="cards winter-cards fade-in" data-season-cards="winter">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            The Book Eaters
+                                        </p>
+                                        <p class="book-author">
+                                            By Sunyi Dean
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        An unusual sci-fi story about a book eater woman who tries desperately to save
+                                        her
+                                        dangerous mind-eater son from tradition and certain death. Complete with
+                                        dysfunctional family values, light Sapphic romance, and a strong, complex
+                                        protagonist. Not for the faint of heart.
+                                    </p>
+                                    <button class="card-button">Buy</button>
+                                </div>
+                                <div class="card-right">
+                                    <img src="assets/book.png" alt="book-1">
+                                </div>
+                            </div>
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Cackle
+                                        </p>
+                                        <p class="book-author">
+                                            By Rachel Harrison
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        Are your Halloween movies of choice The Witches of Eastwick and Practical Magic?
+                                        Look no further than here - where a woman recovering from a breakup moves to a
+                                        quaint town in upstate New York and befriends a beautiful witch. </p>
+                                    <button class="card-button">Buy</button>
+                                </div>
+                                <div class="card-right">
+                                    <img src="assets/book%201.png" alt="book-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cards winter-cards fade-in" data-season-cards="winter">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Dante: Poet of the Secular World
+                                        </p>
+                                        <p class="book-author">
+                                            By Erich Auerbach Book Eaters
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        Auerbach's engaging book places the 'Comedy' within the tradition of epic,
+                                        tragedy,
+                                        and philosophy in general, arguing for Dante's uniqueness as one who raised the
+                                        individual and his drama of soul into something of divine significance—an
+                                        inspired
+                                        introduction to Dante's main themes.</p>
+                                    <button class="card-button">Buy</button>
+                                </div>
+                                <div class="card-right">
+                                    <img src="assets/book%202.png" alt="book-3">
+                                </div>
+                            </div>
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            The Last Queen
+                                        </p>
+                                        <p class="book-author">
+                                            By Clive Irving
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        A timely and revelatory new biography of Queen Elizabeth (and her family)
+                                        exploring
+                                        how the Windsors have evolved and thrived as the modern world has changed around
+                                        them.</p>
+                                    <button class="card-button">Buy</button>
+                                </div>
+                                <div class="card-right">
+                                    <img src="assets/book%203.png" alt="book-3">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                        <input class="season-input" type="radio" id="winter" value="winter" name="drone" checked>
-                        <label class="season-text" for="winter">Winter</label>
-                    </div>
-                    <div class="season-item">
-                        <input type="radio" id="spring" value="spring" name="drone" disabled>
-                        <label class="season-text" for="spring">Spring</label>
-                    </div>
-                    <div class="season-item">
-                        <input type="radio" id="summer" value="summer" name="drone" disabled>
-                        <label class="season-text" for="summer">Summer</label>
-                    </div>
-                    <div class="season-item">
-                        <input type="radio" id="autumn" value="autumn" name="drone" disabled>
-                        <label class="season-text" for="autumn">Autumn</label>
-                    </div>
-                </div>
-                <div class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                    <div class="cards spring-cards fade-out" data-season-cards="spring">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            The Body
+                                        </p>
+                                        <p class="book-author">
+                                            By Stephen King
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        Powerful novel that takes you back to a nostalgic time, exploring both the
+                                        beauty
+                                        and danger and loss of innocence that is youth.</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        The Book Eaters
-                                    </p>
-                                    <p class="book-author">
-                                        By Sunyi Dean
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%204.png" alt="book-4">
                                 </div>
-                                <p class="card-description">
-                                    An unusual sci-fi story about a book eater woman who tries desperately to save her
-                                    dangerous mind-eater son from tradition and certain death. Complete with
-                                    dysfunctional family values, light Sapphic romance, and a strong, complex
-                                    protagonist. Not for the faint of heart.
-                                </p>
-                                <button class="card-button">Buy</button>
                             </div>
-                            <div class="card-right">
-                                <img src="assets/book.png" alt="book-1">
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Carry: A Memoir of Survival on Stolen Land
+                                        </p>
+                                        <p class="book-author">
+                                            By Toni Jensong
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        This memoir about the author's relationship with gun violence feels both
+                                        expansive
+                                        and intimate, resulting in a lyrical indictment of the way things are.</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Cackle
-                                    </p>
-                                    <p class="book-author">
-                                        By Rachel Harrison
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%205.png" alt="book-5">
                                 </div>
-                                <p class="card-description">
-                                    Are your Halloween movies of choice The Witches of Eastwick and Practical Magic?
-                                    Look no further than here - where a woman recovering from a breakup moves to a
-                                    quaint town in upstate New York and befriends a beautiful witch. </p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%201.png" alt="book-2">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                    <div class="cards spring-cards fade-out" data-season-cards="spring">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Days of Distraction
+                                        </p>
+                                        <p class="book-author">
+                                            By Alexandra Chang
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        A sardonic view of Silicon Valley culture, a meditation on race, and a journal
+                                        of
+                                        displacement and belonging, all in one form-defying package of spare prose.</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Dante: Poet of the Secular World
-                                    </p>
-                                    <p class="book-author">
-                                        By Erich Auerbach Book Eaters
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%206.png" alt="book-6">
                                 </div>
-                                <p class="card-description">
-                                    Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy,
-                                    and philosophy in general, arguing for Dante's uniqueness as one who raised the
-                                    individual and his drama of soul into something of divine significance—an inspired
-                                    introduction to Dante's main themes.</p>
-                                <button class="card-button">Buy</button>
                             </div>
-                            <div class="card-right">
-                                <img src="assets/book%202.png" alt="book-3">
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Dominicana
+                                        </p>
+                                        <p class="book-author">
+                                            By Angie Cruz
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        A fascinating story of a teenage girl who marries a man twice her age with the
+                                        promise to bring her to America. Her marriage is an opportunity for her family
+                                        to
+                                        eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        The Last Queen
-                                    </p>
-                                    <p class="book-author">
-                                        By Clive Irving
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%207.png" alt="book-7">
                                 </div>
-                                <p class="card-description">
-                                    A timely and revelatory new biography of Queen Elizabeth (and her family) exploring
-                                    how the Windsors have evolved and thrived as the modern world has changed around
-                                    them.</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%203.png" alt="book-3">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="display: none" class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
-                                </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        The Body
-                                    </p>
-                                    <p class="book-author">
-                                        By Stephen King
-                                    </p>
-                                </div>
-                                <p class="card-description">
-                                    Powerful novel that takes you back to a nostalgic time, exploring both the beauty
-                                    and danger and loss of innocence that is youth.</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%204.png" alt="book-4">
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
-                                </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Carry: A Memoir of Survival on Stolen Land
-                                    </p>
-                                    <p class="book-author">
-                                        By Toni Jensong
-                                    </p>
-                                </div>
-                                <p class="card-description">
-                                    This memoir about the author's relationship with gun violence feels both expansive
-                                    and intimate, resulting in a lyrical indictment of the way things are.</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%205.png" alt="book-5">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div style="display: none" class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+
+                    <div class="cards summer-cards fade-out" data-season-cards="summer">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Crude: A Memoir
+                                        </p>
+                                        <p class="book-author">
+                                            By Pablo Fajardo & ​​Sophie Tardy-Joubert
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        Drawing and color by Damien Roudeau | This book illustrates the struggles of a
+                                        group
+                                        of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for
+                                        damage
+                                        their oil fields did to the Amazon and her people</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Days of Distraction
-                                    </p>
-                                    <p class="book-author">
-                                        By Alexandra Chang
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%208.png" alt="book-8">
                                 </div>
-                                <p class="card-description">
-                                    A sardonic view of Silicon Valley culture, a meditation on race, and a journal of
-                                    displacement and belonging, all in one form-defying package of spare prose.</p>
-                                <button class="card-button">Buy</button>
                             </div>
-                            <div class="card-right">
-                                <img src="assets/book%206.png" alt="book-6">
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Let My People Go Surfing
+                                        </p>
+                                        <p class="book-author">
+                                            By Yvon Chouinard
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        Chouinard—climber, businessman, environmentalist—shares tales of courage and
+                                        persistence from his experience of founding and leading Patagonia, Inc. Full
+                                        title:
+                                        Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10
+                                        More Years of Business Unusual.</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Dominicana
-                                    </p>
-                                    <p class="book-author">
-                                        By Angie Cruz
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%209.png" alt="book-9">
                                 </div>
-                                <p class="card-description">
-                                    A fascinating story of a teenage girl who marries a man twice her age with the
-                                    promise to bring her to America. Her marriage is an opportunity for her family to
-                                    eventually immigrate. For fans of Isabel Allende and Julia Alvarez.</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%207.png" alt="book-7">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div style="display: none" class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
-                                </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Crude: A Memoir
-                                    </p>
-                                    <p class="book-author">
-                                        By Pablo Fajardo & ​​Sophie Tardy-Joubert
-                                    </p>
-                                </div>
-                                <p class="card-description">
-                                    Drawing and color by Damien Roudeau | This book illustrates the struggles of a group
-                                    of indigenous Ecuadoreans as they try to sue the ChevronTexaco company for damage
-                                    their oil fields did to the Amazon and her people</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%208.png" alt="book-8">
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
-                                </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Let My People Go Surfing
-                                    </p>
-                                    <p class="book-author">
-                                        By Yvon Chouinard
-                                    </p>
-                                </div>
-                                <p class="card-description">
-                                    Chouinard—climber, businessman, environmentalist—shares tales of courage and
-                                    persistence from his experience of founding and leading Patagonia, Inc. Full title:
-                                    Let My People Go Surfing: The Education of a Reluctant Businessman, Including 10
-                                    More Years of Business Unusual.</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%209.png" alt="book-9">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div style="display: none" class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                    <div class="cards summer-cards fade-out" data-season-cards="summer">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            The Octopus Museum: Poems
+                                        </p>
+                                        <p class="book-author">
+                                            By Brenda Shaughnessy
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        This collection of bold and scathingly beautiful feminist poems imagines what
+                                        comes
+                                        after our current age of environmental destruction, racism, sexism, and divisive
+                                        politics.</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        The Octopus Museum: Poems
-                                    </p>
-                                    <p class="book-author">
-                                        By Brenda Shaughnessy
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%2010.png" alt="book-10">
                                 </div>
-                                <p class="card-description">
-                                    This collection of bold and scathingly beautiful feminist poems imagines what comes
-                                    after our current age of environmental destruction, racism, sexism, and divisive
-                                    politics.</p>
-                                <button class="card-button">Buy</button>
                             </div>
-                            <div class="card-right">
-                                <img src="assets/book%2010.png" alt="book-10">
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Shark Dialogues: A Novel
+                                        </p>
+                                        <p class="book-author">
+                                            By Kiana Davenport
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        An epic saga of seven generations of one family encompasses the tumultuous
+                                        history
+                                        of Hawaii as a Hawaiian woman gathers her four granddaughters together in an
+                                        erotic
+                                        tale of villains and dreamers, queens and revolutionaries, lepers and
+                                        healers.</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Shark Dialogues: A Novel
-                                    </p>
-                                    <p class="book-author">
-                                        By Kiana Davenport
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%2011.png" alt="book-11">
                                 </div>
-                                <p class="card-description">
-                                    An epic saga of seven generations of one family encompasses the tumultuous history
-                                    of Hawaii as a Hawaiian woman gathers her four granddaughters together in an erotic
-                                    tale of villains and dreamers, queens and revolutionaries, lepers and healers.</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%2011.png" alt="book-11">
                             </div>
                         </div>
                     </div>
-                </div>
-                <div style="display: none" class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+
+                    <div class="cards autumn-cards fade-out" data-season-cards="autumn">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Casual Conversation
+                                        </p>
+                                        <p class="book-author">
+                                            By Renia White
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        White's impressive debut collection takes readers through and beyond the
+                                        concepts of
+                                        conversation and the casual - both what we say to each other and what we don't,
+                                        examining the possibilities around how we construct and communicate
+                                        identity. </p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Casual Conversation
-                                    </p>
-                                    <p class="book-author">
-                                        By Renia White
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%2012.png" alt="book-12">
                                 </div>
-                                <p class="card-description">
-                                    White's impressive debut collection takes readers through and beyond the concepts of
-                                    conversation and the casual - both what we say to each other and what we don't,
-                                    examining the possibilities around how we construct and communicate identity. </p>
-                                <button class="card-button">Buy</button>
                             </div>
-                            <div class="card-right">
-                                <img src="assets/book%2012.png" alt="book-12">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            The Great Fire
+                                        </p>
+                                        <p class="book-author">
+                                            By Lou Ureneck
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        The harrowing story of an ordinary American and a principled Naval officer who,
+                                        horrified by the burning of Smyrna, led an extraordinary rescue effort that
+                                        saved a
+                                        quarter of a million refugees from the Armenian Genocide</p>
+                                    <button class="card-button">Buy</button>
+                                </div>
+                                <div class="card-right">
+                                    <img src="assets/book%2013.png" alt="book-13">
+                                </div>
                             </div>
                         </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
+                    </div>
+                    <div class="cards autumn-cards fade-out" data-season-cards="autumn">
+                        <div class="card-section">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Rickey: The Life and Legend
+                                        </p>
+                                        <p class="book-author">
+                                            By Howard Bryant
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        With the fall rolling around, one can't help but think of baseball's postseason
+                                        coming up! And what better way to prepare for it than reading the biography of
+                                        one
+                                        of the game's all-time greatest performers, the Man of Steal, Rickey
+                                        Henderson?</p>
+                                    <button class="card-button">Buy</button>
                                 </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        The Great Fire
-                                    </p>
-                                    <p class="book-author">
-                                        By Lou Ureneck
-                                    </p>
+                                <div class="card-right">
+                                    <img src="assets/book%2014.png" alt="book-14">
                                 </div>
-                                <p class="card-description">
-                                    The harrowing story of an ordinary American and a principled Naval officer who,
-                                    horrified by the burning of Smyrna, led an extraordinary rescue effort that saved a
-                                    quarter of a million refugees from the Armenian Genocide</p>
-                                <button class="card-button">Buy</button>
                             </div>
-                            <div class="card-right">
-                                <img src="assets/book%2013.png" alt="book-13">
+                            <div class="card-item">
+                                <div class="card-left">
+                                    <div class="card-pick">
+                                        <p>Staff Picks</p>
+                                        <hr>
+                                    </div>
+                                    <div class="card-title">
+                                        <p class="book-title">
+                                            Slug: And Other Stories
+                                        </p>
+                                        <p class="book-author">
+                                            By Megan Milks
+                                        </p>
+                                    </div>
+                                    <p class="card-description">
+                                        Exes Tegan and Sara find themselves chained together by hairballs of
+                                        codependency. A
+                                        father and child experience the shared trauma of giving birth to gods from their
+                                        wounds.</p>
+                                    <button class="card-button">Buy</button>
+                                </div>
+                                <div class="card-right">
+                                    <img src="assets/book%2015.png" alt="book-15">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div style="display: none" class="cards">
-                    <div class="card-section">
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
-                                </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Rickey: The Life and Legend
-                                    </p>
-                                    <p class="book-author">
-                                        By Howard Bryant
-                                    </p>
-                                </div>
-                                <p class="card-description">
-                                    With the fall rolling around, one can't help but think of baseball's postseason
-                                    coming up! And what better way to prepare for it than reading the biography of one
-                                    of the game's all-time greatest performers, the Man of Steal, Rickey Henderson?</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%2014.png" alt="book-14">
-                            </div>
-                        </div>
-                        <div class="card-item">
-                            <div class="card-left">
-                                <div class="card-pick">
-                                    <p>Staff Picks</p>
-                                    <hr>
-                                </div>
-                                <div class="card-title">
-                                    <p class="book-title">
-                                        Slug: And Other Stories
-                                    </p>
-                                    <p class="book-author">
-                                        By Megan Milks
-                                    </p>
-                                </div>
-                                <p class="card-description">
-                                    Exes Tegan and Sara find themselves chained together by hairballs of codependency. A
-                                    father and child experience the shared trauma of giving birth to gods from their
-                                    wounds.</p>
-                                <button class="card-button">Buy</button>
-                            </div>
-                            <div class="card-right">
-                                <img src="assets/book%2015.png" alt="book-15">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </section>
         <section id="shop" class="section">

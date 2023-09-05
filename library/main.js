@@ -184,6 +184,86 @@ overlay.addEventListener("click", function(event) {
 });
 
 
+// Получаем ссылки на радиокнопки выбора сезона
+const seasonRadios = document.querySelectorAll('.season-item input[type="radio"]');
+
+// Получаем ссылки на блоки карточек для каждого сезона
+const seasonCards = {
+    winter: document.querySelectorAll('.winter-cards'),
+    spring: document.querySelectorAll('.spring-cards'),
+    summer: document.querySelectorAll('.summer-cards'),
+    autumn: document.querySelectorAll('.autumn-cards'),
+};
+
+// Функция для скрытия всех блоков карточек
+function hideAllCards() {
+    for (const season in seasonCards) {
+        seasonCards[season].forEach(card => card.classList.remove('active'));
+    }
+}
+
+// Функция для отображения блоков карточек соответствующего выбранному сезону
+function showCardsForSeason(season) {
+    hideAllCards();
+    seasonCards[season].forEach(card => card.classList.add('active'));
+}
+
+function toggleCardAnimation(season) {
+    const allCards = document.querySelectorAll('.cards');
+
+    allCards.forEach(card => {
+        card.classList.remove('fade-in');
+        card.classList.add('fade-out');
+    });
+
+    // Задержка перед применением новых классов
+    setTimeout(() => {
+        allCards.forEach(card => {
+            card.classList.remove('fade-out');
+            if (card.classList.contains(season + '-cards')) {
+                card.classList.add('fade-in');
+            }
+        });
+    }, 100); // 100 миллисекунд, чтобы браузер обновил стили
+}
+
+
+
+// Обработчики событий для радиокнопок выбора сезона
+seasonRadios.forEach(radio => {
+    radio.addEventListener('click', () => {
+        const selectedSeason = radio.getAttribute('data-season');
+        toggleCardAnimation(selectedSeason); // Вызываем функцию анимации
+        showCardsForSeason(selectedSeason);
+    });
+});
+
+
+// По умолчанию отображаем карточки для выбранного сезона (например, для зимы)
+const defaultSeason = document.querySelector('.season-item input[type="radio"]:checked').getAttribute('data-season');
+showCardsForSeason(defaultSeason);
+
+window.addEventListener('scroll', function () {
+    const seasonInputs = document.querySelector('.season-navigation');
+    const favoritesSection = document.querySelector('#favorites');
+    const scrollPosition = window.scrollY;
+
+    if (window.innerWidth <= 768) {
+        if (scrollPosition >= favoritesSection.offsetTop) {
+            seasonInputs.classList.add('sticky');
+        } else {
+            seasonInputs.classList.remove('sticky');
+        }
+    } else {
+        seasonInputs.classList.remove('sticky');
+    }
+});
+
+
+
+
+
+
 
 
 
