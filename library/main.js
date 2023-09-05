@@ -115,72 +115,61 @@ document.addEventListener('click', (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Получаем ссылки на элементы модального окна и фона
-    const modalLog = document.querySelector(".modal");
     const overlay = document.querySelector(".overlay");
-
-// Получаем ссылку на кнопку закрытия модального окна
+    const modalLog = document.querySelector(".modal");
+    const modalRegister = document.querySelector(".modal-register");
     const closeButton = document.querySelector(".close-button");
+    const closeButtonRegister = document.querySelector("#close-button-register");
+    const logInLinks = document.querySelectorAll(".open-login");
+    const registerLinks = document.querySelectorAll(".open-register");
 
-// Получаем ссылку на элемент "Log In"
-    const logInLink = document.querySelector(".profile-link.profile-log-in");
-
-// Функция для открытия модального окна
-    function openModal() {
-        modalLog.style.display = "block";
+    function openModal(modal) {
+        modal.style.display = "block";
         overlay.style.display = "block";
     }
 
-// Функция для закрытия модального окна
-    function closeModal() {
-        modalLog.style.display = "none";
+    function closeModal(modal) {
+        modal.style.display = "none";
         overlay.style.display = "none";
     }
 
-// Добавляем обработчик события для кнопки закрытия
-    closeButton.addEventListener("click", closeModal);
-
-// Добавляем обработчик события для открытия модального окна при клике на "Log In"
-    logInLink.addEventListener("click", openModal);
-
-// Добавляем обработчик события для закрытия модального окна при клике вне него (по фону)
-    overlay.addEventListener("click", function(event) {
-        if (event.target === overlay) {
-            closeModal();
-        }
-    });
-});
-
-// Получаем ссылки на элементы модального окна "REGISTER" и фона
-const modalRegister = document.querySelector(".modal-register");
-const overlay = document.querySelector(".overlay");
-const closeButtonRegister = document.getElementById("close-button-register");
-
-
-// Функция для открытия модального окна "REGISTER"
-function openModalRegister() {
-    modalRegister.style.display = "block";
-    overlay.style.display = "block";
-}
-
-// Функция для закрытия модального окна "REGISTER"
-function closeModalRegister() {
-    modalRegister.style.display = "none";
-    overlay.style.display = "none";
-}
-
-// Добавляем обработчик события для кнопки закрытия модального окна "REGISTER"
-closeButtonRegister.addEventListener("click", closeModalRegister);
-
-// Добавляем обработчик события для открытия модального окна "REGISTER" (например, при клике на какую-либо кнопку)
-const openButtonRegister = document.querySelector(".profile-link.profile-register"); // Замените на актуальный элемент, который открывает модальное окно "REGISTER"
-openButtonRegister.addEventListener("click", openModalRegister);
-
-// Добавляем обработчик события для закрытия модального окна "REGISTER" при клике вне него (по фону)
-overlay.addEventListener("click", function(event) {
-    if (event.target === overlay) {
-        closeModalRegister();
+    function openLogInModal() {
+        closeModal(modalRegister); // Закрываем окно "Register", если оно открыто
+        openModal(modalLog); // Открываем окно "Login"
     }
+
+    function openRegisterModal() {
+        closeModal(modalLog); // Закрываем окно "Login", если оно открыто
+        openModal(modalRegister); // Открываем окно "Register"
+    }
+
+    closeButton.addEventListener("click", function() {
+        closeModal(modalLog);
+    });
+
+    closeButtonRegister.addEventListener("click", function() {
+        closeModal(modalRegister);
+        closeModal(modalLog);
+    });
+
+    logInLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            openLogInModal();
+        });
+    });
+
+    registerLinks.forEach(link => {
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            openRegisterModal();
+        });
+    });
+
+    overlay.addEventListener("click", function(event) {
+        closeModal(modalLog);
+        closeModal(modalRegister);
+    });
 });
 
 
