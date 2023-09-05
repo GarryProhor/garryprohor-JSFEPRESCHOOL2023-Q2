@@ -248,6 +248,25 @@ window.addEventListener('scroll', function () {
     }
 });
 
+//Валидация формы Register
+document.getElementById("registrationForm").addEventListener("submit", function (event) {
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!firstName || !lastName || !email || !password) {
+        alert("All fields must be filled out");
+        event.preventDefault();
+    }
+
+    if (password.length < 8) {
+        alert("Password must be at least 8 characters long");
+        event.preventDefault();
+    }
+});
+
+
 
 
 

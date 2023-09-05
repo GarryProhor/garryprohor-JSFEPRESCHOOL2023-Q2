@@ -98,15 +98,15 @@
                     </svg></span>
                     <div class="modal-content">
                         <p class="modal-title">REGISTER</p>
-                        <form class="modal-form" action="post">
+                        <form class="modal-form" action="#" id="registrationForm">
                             <p class="modal-text">First name</p>
-                            <input type="text" class="modal-input">
+                            <input type="text" class="modal-input" id="firstName" required>
                             <p class="modal-text">Last name</p>
-                            <input type="text" class="modal-input">
+                            <input type="text" class="modal-input" id="lastName" required>
                             <p class="modal-text">E-mail</p>
-                            <input type="email" class="modal-input">
+                            <input type="email" class="modal-input" id="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}">
                             <p class="modal-text">Password</p>
-                            <input type="password" class="modal-input">
+                            <input type="password" class="modal-input" id="password" required minlength="8">
                             <button class="modal-button" type="submit">Log In</button>
                         </form>
                         <p class="modal-bottom">Already have an account? <a href="#" class="modal-link open-login">Login</a></p>
