@@ -266,6 +266,52 @@ document.getElementById("registrationForm").addEventListener("submit", function 
     }
 });
 
+document.getElementById("registrationForm").addEventListener("submit", function (event) {
+    event.preventDefault(); // Отменяем отправку формы для ручной обработки
+
+    // Получаем значения полей
+    const firstName = document.getElementById("firstName").value;
+    const lastName = document.getElementById("lastName").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    // Генерируем девятизначный Card Number
+    const cardNumber = generateCardNumber();
+
+    // Создаем объект пользователя
+    const user = {
+        firstName,
+        lastName,
+        email,
+        password,
+        cardNumber,
+    };
+
+    // Сохраняем данные пользователя в localStorage
+    saveUserData(user);
+
+    // Очищаем форму после сохранения данных
+    clearForm();
+});
+
+function generateCardNumber() {
+    // Генерируем случайное 9-значное число в 16-ричном формате
+    return Math.floor(Math.random() * 0x100000000).toString(16).substring(0, 9).toUpperCase();
+}
+
+function saveUserData(user) {
+    // Преобразуем объект пользователя в строку JSON и сохраняем в localStorage
+    localStorage.setItem("user", JSON.stringify(user));
+}
+
+function clearForm() {
+    // Очищаем поля формы
+    document.getElementById("firstName").value = "";
+    document.getElementById("lastName").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("password").value = "";
+}
+
 
 
 
