@@ -349,8 +349,6 @@ checkCardButton.addEventListener("click", function () {
             readerNameInput.value = "";
             cardNumberInput.value = "";
         }, 10000);
-    } else {
-        alert("Invalid reader's name or card number");
     }
 });
 
