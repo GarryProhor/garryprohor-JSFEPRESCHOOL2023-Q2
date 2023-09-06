@@ -379,6 +379,189 @@ body {
     line-height: 20px; /* 133.333% */
 }
 
+/*Модальное окно профиля*/
+.modal-profile{
+
+}
+.modal-profile-content{
+    position: relative;
+    width: 600px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+}
+
+.close-modal{
+    position: absolute;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+}
+
+.modal-profile-left{
+    width: 39%;
+    height: 100%;
+    background-color: var(--color-black-2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modal-profile-icon{
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+.modal-profile-icon-text{
+    color: var(--color-brawn);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    text-transform: capitalize;
+}
+.modal-profile-name{
+    width: 120px;
+    height: 30px;
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-profile-name-title{
+    color: var(--color-black-2);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+}
+.modal-profile-right{
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+}
+.modal-profile-title{
+    color: var(--color-black-2);
+    text-align: start;
+    font-family: var(--font-forum);
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 50% */
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    margin-top: 35px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+.modal-profile-cards{
+    width: 237px;
+    height: 81px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 20px;
+}
+.modal-profile-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.modal-profile-card-text{
+    color: var(--color-black-2);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    letter-spacing: 0.4px;
+    text-transform: capitalize;
+}
+.modal-profile-card-image{
+    margin: 10px auto;
+}
+.modal-profile-card-number{
+    color: var(--color-black-2);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 200% */
+    letter-spacing: 0.2px;
+    text-transform: capitalize;
+}
+.modal-profile-books{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+.modal-profile-rented{
+    color: var(--color-black-2);
+    text-align: start;
+    font-family: var(--font-inter);
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 80% */
+}
+.modal-profile-list{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+.modal-profile-item{
+    list-style: disc;
+    color: var(--color-black-2);
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+.modal-profile-number{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.modal-profile-number-text{
+    color: var(--color-black-2);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    margin-right: 15px;
+}
+.modal-profile-number-card{
+    color: var(--color-brawn);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 100% */
+    margin-right: 15px;
+}
+.modal-profile-icon-copy{
+    cursor: pointer;
+}
+
+
 /* Стили для бургер-меню */
 .burger {
     cursor: pointer;
