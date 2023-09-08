@@ -114,7 +114,7 @@ document.addEventListener('click', (event) => {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const overlay = document.querySelector(".overlay");
     const modalLog = document.querySelector(".modal");
     const modalRegister = document.querySelector(".modal-register");
@@ -143,30 +143,30 @@ document.addEventListener("DOMContentLoaded", function() {
         openModal(modalRegister); // Открываем окно "Register"
     }
 
-    closeButton.addEventListener("click", function() {
+    closeButton.addEventListener("click", function () {
         closeModal(modalLog);
     });
 
-    closeButtonRegister.addEventListener("click", function() {
+    closeButtonRegister.addEventListener("click", function () {
         closeModal(modalRegister);
         closeModal(modalLog);
     });
 
     logInLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
+        link.addEventListener("click", function (event) {
             event.preventDefault();
             openLogInModal();
         });
     });
 
     registerLinks.forEach(link => {
-        link.addEventListener("click", function(event) {
+        link.addEventListener("click", function (event) {
             event.preventDefault();
             openRegisterModal();
         });
     });
 
-    overlay.addEventListener("click", function() {
+    overlay.addEventListener("click", function () {
         closeModal(modalLog);
         closeModal(modalRegister);
     });
@@ -215,7 +215,6 @@ function toggleCardAnimation(season) {
         });
     }, 100); // 100 миллисекунд, чтобы браузер обновил стили
 }
-
 
 
 // Обработчики событий для радиокнопок выбора сезона
@@ -528,10 +527,19 @@ loginForm.addEventListener("submit", function (e) {
             iconProfileText.style.display = "block";
         }
 
+        // Получаем элемент .icon-profile
+        const iconProfile = document.querySelector(".icon-profile");
+
+
+        // Функция для получения полного имени
+        function getFullName(user) {
+            return user ? `${user.firstName} ${user.lastName}` : "User";
+        }
+
+        // Устанавливаем атрибут title на полное имя пользователя, если пользователь авторизован
+        iconProfile.setAttribute("title", getFullName(userData));
+
     }
-
-
-
 
     // Очищаем поля ввода
     emailInput.value = "";
@@ -586,6 +594,7 @@ overlay.addEventListener("click", function (e) {
         overlay.style.display = "none";
     }
 });
+
 
 
 
