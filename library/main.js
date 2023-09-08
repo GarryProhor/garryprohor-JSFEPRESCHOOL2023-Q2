@@ -463,6 +463,32 @@ document.addEventListener("click", function (event) {
     }
 });
 
+// Функция для увеличения счетчика входов при успешной авторизации
+function incrementLoginCounter() {
+    // Получаем текущее значение счетчика из localStorage
+    let loginCounter = localStorage.getItem("loginCounter");
+
+    // Преобразуем значение в число и увеличиваем на 1
+    loginCounter = parseInt(loginCounter) + 1;
+
+    // Сохраняем обновленное значение счетчика в localStorage
+    localStorage.setItem("loginCounter", loginCounter);
+
+}
+
+
+// Функция для отображения значения счетчика входов в элементе
+function displayLoginCounter() {
+    // Получаем значение счетчика из localStorage
+    const loginCounter = localStorage.getItem("loginCounter");
+
+    // Отображаем значение счетчика в элементе
+    const visitsElement = document.querySelector(".modal-profile-card-number.visits");
+    if (visitsElement) {
+        visitsElement.textContent = loginCounter || "0"; // Если счетчик не существует, отображаем "0"
+    }
+}
+
 // Обработчик отправки формы
 loginForm.addEventListener("submit", function (e) {
     e.preventDefault();
@@ -480,6 +506,8 @@ loginForm.addEventListener("submit", function (e) {
 
     // Устанавливаем статус как авторизован
     isLoggedIn = true;
+
+
 
     // Обновляем отображение меню
     updateMenuDisplay();
@@ -525,6 +553,11 @@ loginForm.addEventListener("submit", function (e) {
 
             // Показываем .icon-profile-text
             iconProfileText.style.display = "block";
+
+
+            incrementLoginCounter();
+            // После успешной авторизации также вызываем функцию для обновления отображения счетчика
+            displayLoginCounter();
         }
 
         // Получаем элемент .icon-profile
@@ -595,6 +628,41 @@ overlay.addEventListener("click", function (e) {
     }
 });
 
+
+
+// Получаем данные пользователя из localStorage (предполагая, что они там хранятся)
+const userData = JSON.parse(localStorage.getItem("user"));
+
+// Получаем первые заглавные буквы имени и фамилии
+const firstNameInitial = userData.firstName.charAt(0);
+const lastNameInitial = userData.lastName.charAt(0);
+
+// Устанавливаем первые заглавные буквы в элемент .modal-profile-icon-text
+const iconTextElement = document.querySelector(".modal-profile-icon-text");
+iconTextElement.textContent = `${firstNameInitial}${lastNameInitial}`;
+
+
+// Получаем полное имя пользователя и устанавливаем его в элемент .modal-profile-name-title
+const fullName = `${userData.firstName} ${userData.lastName}`;
+const nameTitleElement = document.querySelector(".modal-profile-name-title");
+nameTitleElement.textContent = fullName;
+
+
+// Получаем cardNumber и устанавливаем его в элемент .modal-profile-number-card
+const cardNumber = userData.cardNumber;
+const cardNumberElement = document.querySelector(".modal-profile-number-card");
+cardNumberElement.textContent = cardNumber;
+
+// Получаем элемент с изображением для копирования
+const copyIconElement = document.querySelector(".modal-profile-icon-copy");
+
+
+// Добавляем обработчик события для копирования cardNumber при клике на изображение
+copyIconElement.addEventListener("click", function () {
+    // Копируем cardNumber в буфер обмена
+    const cardNumberToCopy = userData.cardNumber;
+    navigator.clipboard.writeText(cardNumberToCopy);
+});
 
 
 
