@@ -664,6 +664,42 @@ copyIconElement.addEventListener("click", function () {
     navigator.clipboard.writeText(cardNumberToCopy);
 });
 
+const buyButtons = document.querySelectorAll('.card-button');
+const modalBuyCard = document.querySelector('.modal-buy-card');
+const modalBuyCardClose = document.querySelector('.modal-buy-card-close');
+
+// Добавляем обработчики клика на кнопки "Buy"
+buyButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+        if (isLoggedIn) {
+            // Если пользователь авторизован, открываем модальное окно для покупки
+            modalBuyCard.style.display = 'block';
+            overlay.style.display = 'block';
+        } else {
+            // Если пользователь не авторизован, открываем модальное окно для входа
+            const loginModal = document.querySelector('.modal');
+            loginModal.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+    });
+});
+
+// Добавляем обработчик клика на крестик в модальном окне для покупки
+modalBuyCardClose.addEventListener('click', function () {
+    modalBuyCard.style.display = 'none';
+    overlay.style.display = 'none';
+});
+
+// Добавляем обработчик клика на overlay
+overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) {
+        modalBuyCard.style.display = 'none';
+        overlay.style.display = 'none';
+    }
+});
+
+
+
 
 
 

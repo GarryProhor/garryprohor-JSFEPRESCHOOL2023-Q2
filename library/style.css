@@ -597,9 +597,12 @@ body {
 /*Модальное окно покупки*/
 
 .modal-buy-card{
+    position: fixed;
+    left: 25%;
     width: 640px;
     height: 540px;
     display: none;
+    z-index: 2;
 }
 .modal-buy-card-header{
     position: relative;
