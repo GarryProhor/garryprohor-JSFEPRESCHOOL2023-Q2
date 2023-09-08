@@ -531,6 +531,8 @@ loginForm.addEventListener("submit", function (e) {
     }
 
 
+
+
     // Очищаем поля ввода
     emailInput.value = "";
     passwordInput.value = "";
@@ -557,6 +559,34 @@ loginForm.addEventListener("submit", function (e) {
     });
 
 });
+
+// Получаем ссылку на "My profile" и модальное окно профиля
+const myProfileLink = document.getElementById("myProfileLink");
+const modalProfile = document.querySelector(".modal-profile");
+const overlay = document.querySelector(".overlay");
+
+// Обработчик для открытия модального окна профиля
+myProfileLink.addEventListener("click", function () {
+    modalProfile.style.display = "block";
+    overlay.style.display = "block";
+});
+
+// Обработчик для закрытия модального окна профиля
+const closeModalButton = document.querySelector(".close-modal");
+
+closeModalButton.addEventListener("click", function () {
+    modalProfile.style.display = "none";
+    overlay.style.display = "none";
+});
+
+// Обработчик для закрытия модального окна при клике вне него
+overlay.addEventListener("click", function (e) {
+    if (e.target === overlay) {
+        modalProfile.style.display = "none";
+        overlay.style.display = "none";
+    }
+});
+
 
 
 
