@@ -375,6 +375,140 @@ function resetUserProfile() {
 }
 
 
+// Переменная для отслеживания статуса авторизации
+let isLoggedIn = false; // Изначально пользователь не авторизован
+
+// Элементы меню
+const dropMenu = document.querySelector(".drop-menu");
+const dropProfile = document.querySelector(".drop-profile");
+
+
+// Обработчик для кнопки "Log In"
+const loginLink = document.querySelector(".open-login");
+const loginModal = document.querySelector(".modal");
+
+loginLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    loginModal.style.display = "block";
+});
+
+// Закрытие модального окна при клике на крестик
+const closeButton = document.querySelector(".close-button");
+
+closeButton.addEventListener("click", function () {
+    loginModal.style.display = "none";
+});
+
+// Обработчик отправки формы
+const loginForm = document.querySelector("#loginForm");
+
+loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Получение введенных данных
+    const emailInput = document.querySelector("#emailInput");
+    const passwordInput = document.querySelector("#passwordInput");
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    // Здесь можно добавить код для отправки данных на сервер и обработки авторизации
+    // После успешной авторизации, можно перенаправить пользователя на нужную страницу
+    // или выполнить другие действия.
+
+    // Устанавливаем статус как авторизован
+    isLoggedIn = true;
+
+    // Обновляем отображение меню
+    updateMenuDisplay();
+});
+
+// Функция для обновления отображения элементов в зависимости от статуса авторизации
+function updateMenuDisplay() {
+    if (isLoggedIn) {
+        // Если пользователь авторизован, скрываем форму входа и регистрации, показываем профиль
+        dropMenu.style.display = "none";
+        dropProfile.style.display = "block";
+    } else {
+        // Если пользователь не авторизован, показываем форму входа и регистрации, скрываем профиль
+        dropMenu.style.display = "none";
+        dropProfile.style.display = "none";
+    }
+}
+
+// Инициализация отображения элементов при загрузке страницы
+updateMenuDisplay();
+
+// Обработчик для элемента, который открывает меню
+const iconProfile = document.querySelector(".icon-profile");
+
+iconProfile.addEventListener("click", function () {
+    if (isLoggedIn) {
+        // Если пользователь авторизован, при клике открываем или скрываем .drop-profile
+        dropProfile.style.display = dropProfile.style.display === "none" ? "block" : "none";
+    } else {
+        // Если пользователь не авторизован, при первом клике открываем .drop-register
+        if (dropMenu.style.display === "none") {
+            dropMenu.style.display = "none";
+        } else {
+            dropMenu.style.display = "block";
+        }
+    }
+});
+
+// Обработчик клика на документе для закрытия .drop-profile
+document.addEventListener("click", function (event) {
+    const target = event.target;
+    // Проверяем, был ли клик выполнен вне .drop-profile
+    if (!dropProfile.contains(target) && target !== iconProfile) {
+        dropProfile.style.display = "none";
+    }
+});
+
+// Обработчик отправки формы
+loginForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    // Получение введенных данных
+    const emailInput = document.querySelector("#emailInput");
+    const passwordInput = document.querySelector("#passwordInput");
+    const overlay = document.querySelector(".overlay");
+    const email = emailInput.value;
+    const password = passwordInput.value;
+
+    // Здесь можно добавить код для отправки данных на сервер и обработки авторизации
+    // После успешной авторизации, можно перенаправить пользователя на нужную страницу
+    // или выполнить другие действия.
+
+    // Устанавливаем статус как авторизован
+    isLoggedIn = true;
+
+    // Обновляем отображение меню
+    updateMenuDisplay();
+
+    // Скрываем модальное окно и overlay после успешной авторизации
+    loginModal.style.display = "none";
+    overlay.style.display = "none";
+
+    // Обновляем текст элемента "profileTitle" с данными из localStorage и применяем стиль
+    const profileTitle = document.querySelector("#profileTitle");
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (userData && userData.cardNumber) {
+        profileTitle.textContent = userData.cardNumber;
+        profileTitle.style.fontSize = "10px"; // Применяем размер шрифта 12px
+    }
+
+
+    // Очищаем поля ввода
+    emailInput.value = "";
+    passwordInput.value = "";
+});
+
+
+
+
+
+
+
 
 
 

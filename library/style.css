@@ -216,6 +216,8 @@ body {
     background-color: var(--color-white);
     margin-top: 10px;
 }
+.drop-register{
+}
 .drop-profile{
     display: none;
 }
@@ -379,9 +381,29 @@ body {
     line-height: 20px; /* 133.333% */
 }
 
+.profile-in{
+    color: var(--color-black-2);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+    margin: 15px 4px 10px 5px;
+}
+.logout{
+    color: var(--color-black-2);
+    text-align: center;
+    font-family: var(--font-inter);
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px; /* 133.333% */
+}
+
 /*Модальное окно профиля*/
 .modal-profile{
-
+    display: none;
 }
 .modal-profile-content{
     position: relative;
@@ -566,6 +588,7 @@ body {
 .modal-buy-card{
     width: 640px;
     height: 540px;
+    display: none;
 }
 .modal-buy-card-header{
     position: relative;
