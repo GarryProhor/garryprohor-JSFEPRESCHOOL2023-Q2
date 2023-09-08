@@ -494,13 +494,68 @@ loginForm.addEventListener("submit", function (e) {
     const userData = JSON.parse(localStorage.getItem("user"));
     if (userData && userData.cardNumber) {
         profileTitle.textContent = userData.cardNumber;
-        profileTitle.style.fontSize = "10px"; // Применяем размер шрифта 12px
+        profileTitle.style.fontSize = "10px"; // Применяем размер шрифта 10px
+    }
+
+    // После успешной авторизации, скрыть картинку и показать текст
+    if (isLoggedIn) {
+        const iconProfileImg = document.querySelector(".icon-profile-img");
+        const iconProfileText = document.querySelector(".icon-profile-text");
+
+        iconProfileImg.style.display = "none";
+        iconProfileText.style.display = "block";
+
+        // Получаем данные пользователя из localStorage
+        const userData = JSON.parse(localStorage.getItem("user"));
+
+        if (userData) {
+            const initials = getInitials(userData.firstName, userData.lastName);
+
+            // Функция для получения первой буквы из каждого слова и объединения их
+            function getInitials(firstName, lastName) {
+                const firstInitial = firstName.charAt(0).toUpperCase();
+                const lastInitial = lastName.charAt(0).toUpperCase();
+                return `${firstInitial}${lastInitial}`;
+            }
+
+            // Получаем элемент .icon-profile-text
+            const iconProfileText = document.querySelector(".icon-profile-text");
+
+            // Устанавливаем текстовое содержимое элемента
+            iconProfileText.textContent = initials;
+
+            // Показываем .icon-profile-text
+            iconProfileText.style.display = "block";
+        }
+
     }
 
 
     // Очищаем поля ввода
     emailInput.value = "";
     passwordInput.value = "";
+
+    // Обработчик для кнопки "Log Out" в меню
+    const logoutButton = document.querySelector("#logoutButton");
+
+    logoutButton.addEventListener("click", function () {
+        // Здесь можно добавить код для выхода пользователя
+        // Например, сбросить статус авторизации и перенаправить на страницу входа
+        isLoggedIn = false;
+
+        const iconProfileImg = document.querySelector(".icon-profile-img");
+        const iconProfileText = document.querySelector(".icon-profile-text");
+
+        iconProfileImg.style.display = "block";
+        iconProfileText.style.display = "none";
+        // Обновляем отображение меню
+        updateMenuDisplay();
+
+        // Очищаем текст в элементе "profileTitle" и возвращаем его к "Profile"
+        const profileTitle = document.querySelector("#profileTitle");
+        profileTitle.textContent = "Profile";
+    });
+
 });
 
 
