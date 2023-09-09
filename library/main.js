@@ -423,8 +423,10 @@ function displayLoginCounter() {
 
     // Отображаем значение счетчика в элементе
     const visitsElement = document.querySelector(".modal-profile-card-number.visits");
-    if (visitsElement) {
+    const visitsElementBottom = document.querySelector(".card-profile-number.visits");
+    if (visitsElement && visitsElementBottom) {
         visitsElement.textContent = loginCounter.toString();
+        visitsElementBottom.textContent = loginCounter.toString();
     }
 }
 
