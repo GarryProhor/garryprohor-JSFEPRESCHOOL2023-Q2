@@ -751,6 +751,104 @@ function isValidLogin(email, password) {
 }
 
 
+// Получаем ссылки на все необходимые элементы
+const cardNumbersInput = document.getElementById('cardNumberInput');
+const expirationInput = document.getElementById('expirationInput');
+const expirationInput2 = document.getElementById('expirationInput-2');
+const cvcInput = document.getElementById('cvcInput');
+// const cardholderInput = document.getElementById('cardholderInput');
+// const postalCodeInput = document.getElementById('postalCodeInput');
+// const cityInput = document.getElementById('cityInput');
+const buyButton = document.getElementById('buyButton');
+
+// Функция для валидации номера карты
+function validateCardNumber() {
+    const cardNumber = cardNumbersInput.value;
+    // Проверяем, что cardNumber содержит 16 цифр
+    const isValid = /^\d{16}$/.test(cardNumber);
+    return isValid;
+}
+
+// Функция для валидации срока действия
+function validateExpiration() {
+    const expiration = expirationInput.value;
+    // Проверяем, что expiration содержит 2 цифры
+    const isValid = /^\d{2}$/.test(expiration);
+    return isValid;
+}
+
+function validateExpiration2() {
+    const expiration = expirationInput2.value;
+    // Проверяем, что expiration содержит 2 цифры
+    const isValid = /^\d{2}$/.test(expiration);
+    return isValid;
+}
+
+// Функция для валидации CVC
+function validateCVC() {
+    const cvc = cvcInput.value;
+    // Проверяем, что cvc содержит 3 цифры
+    const isValid = /^\d{3}$/.test(cvc);
+    return isValid;
+}
+
+// // Функция для валидации имени держателя карты
+// function validateCardholder() {
+//     const cardholder = cardholderInput.value;
+//     // Проверяем, что cardholder не пустое поле
+//     const isValid = cardholder.trim() !== '';
+//     return isValid;
+// }
+//
+// // Функция для валидации почтового индекса
+// function validatePostalCode() {
+//     const postalCode = postalCodeInput.value;
+//     // Проверяем, что postalCode содержит 6 цифр
+//     const isValid = /^\d{6}$/.test(postalCode);
+//     return isValid;
+// }
+//
+// // Функция для валидации города
+// function validateCity() {
+//     const city = cityInput.value;
+//     // Проверяем, что city содержит только буквы
+//     const isValid = /^[a-zA-Z]+$/.test(city);
+//     return isValid;
+// }
+const cardButton = document.querySelector('.card-button');
+// Добавляем обработчик клика на кнопку "Buy"
+buyButton.addEventListener('click', function () {
+    // Проводим валидацию всех полей
+    const isCardNumberValid = validateCardNumber();
+    const isExpirationValid = validateExpiration();
+    const isExpirationValid2 = validateExpiration2();
+    const isCVCValid = validateCVC();
+    // const isCardholderValid = validateCardholder();
+    // const isPostalCodeValid = validatePostalCode();
+    // const isCityValid = validateCity();
+
+    // Если все поля валидны, можно продолжить
+    if (isCardNumberValid && isExpirationValid && isExpirationValid2 && isCVCValid) {
+        // Очищаем поля формы (если это необходимо)
+        cardNumbersInput.value = '';
+        expirationInput.value = '';
+        expirationInput2.value = '';
+        cvcInput.value = '';
+        // Меняем текст кнопки на "Own"
+        cardButton.textContent = 'Own';
+        // Добавляем класс "card-button-own"
+        cardButton.classList.add('card-button-own');
+        const modal = document.querySelector('.modal-buy-card');
+        modal.style.display = 'none';
+        overlay.style.display = 'none';
+    } else {
+        // Выводим сообщение об ошибке
+        alert('Please fill in all fields correctly.');
+    }
+});
+
+
+
 
 
 
