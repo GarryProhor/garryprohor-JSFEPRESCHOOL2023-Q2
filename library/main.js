@@ -402,31 +402,35 @@ document.addEventListener("click", function (event) {
     }
 });
 
-// Функция для увеличения счетчика входов при успешной авторизации
-function incrementLoginCounter() {
-    // Получаем текущее значение счетчика из localStorage
+
+// Функция для отображения значения счетчика входов в элементе
+function displayLoginCounter() {
+    // Получаем значение счетчика из localStorage
     let loginCounter = localStorage.getItem("loginCounter");
 
     // Преобразуем значение в число и увеличиваем на 1
     loginCounter = parseInt(loginCounter) + 1;
 
+    // Проверяем, является ли loginCounter числом, иначе устанавливаем его в 0
+    if (isNaN(loginCounter)) {
+        loginCounter = 0;
+    } else {
+        loginCounter = parseInt(loginCounter);
+    }
+
     // Сохраняем обновленное значение счетчика в localStorage
     localStorage.setItem("loginCounter", loginCounter);
-
-}
-
-
-// Функция для отображения значения счетчика входов в элементе
-function displayLoginCounter() {
-    // Получаем значение счетчика из localStorage
-    const loginCounter = localStorage.getItem("loginCounter");
 
     // Отображаем значение счетчика в элементе
     const visitsElement = document.querySelector(".modal-profile-card-number.visits");
     if (visitsElement) {
-        visitsElement.textContent = loginCounter || "0"; // Если счетчик не существует, отображаем "0"
+        visitsElement.textContent = loginCounter.toString();
     }
 }
+
+// Вызываем функцию для отображения счетчика при загрузке страницы
+displayLoginCounter();
+
 
 // Обработчик отправки формы
 loginForm.addEventListener("submit", function (e) {
@@ -494,7 +498,6 @@ loginForm.addEventListener("submit", function (e) {
             iconProfileText.style.display = "block";
 
 
-            incrementLoginCounter();
             // После успешной авторизации также вызываем функцию для обновления отображения счетчика
             displayLoginCounter();
         }
@@ -524,6 +527,7 @@ loginForm.addEventListener("submit", function (e) {
         const fullName = `${userData.firstName} ${userData.lastName}`;
         const nameTitleElement = document.querySelector(".modal-profile-name-title");
         nameTitleElement.textContent = fullName;
+        nameTitleElement.style.fontSize = "12px";
 
 
 // Получаем cardNumber и устанавливаем его в элемент .modal-profile-number-card
