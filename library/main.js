@@ -576,27 +576,29 @@ loginForm.addEventListener("submit", function (e) {
     emailInput.value = "";
     passwordInput.value = "";
 
-    // Обработчик для кнопки "Log Out" в меню
-    const logoutButton = document.querySelector("#logoutButton");
 
-    logoutButton.addEventListener("click", function () {
-        // Здесь можно добавить код для выхода пользователя
-        // Например, сбросить статус авторизации и перенаправить на страницу входа
-        isLoggedIn = false;
 
-        const iconProfileImg = document.querySelector(".icon-profile-img");
-        const iconProfileText = document.querySelector(".icon-profile-text");
+});
 
-        iconProfileImg.style.display = "block";
-        iconProfileText.style.display = "none";
-        // Обновляем отображение меню
-        updateMenuDisplay();
+// Обработчик для кнопки "Log Out" в меню
+const logoutButton = document.querySelector("#logoutButton");
 
-        // Очищаем текст в элементе "profileTitle" и возвращаем его к "Profile"
-        const profileTitle = document.querySelector("#profileTitle");
-        profileTitle.textContent = "Profile";
-    });
+logoutButton.addEventListener("click", function () {
+    // Здесь можно добавить код для выхода пользователя
+    // Например, сбросить статус авторизации и перенаправить на страницу входа
+    isLoggedIn = false;
 
+    const iconProfileImg = document.querySelector(".icon-profile-img");
+    const iconProfileText = document.querySelector(".icon-profile-text");
+
+    iconProfileImg.style.display = "block";
+    iconProfileText.style.display = "none";
+    // Обновляем отображение меню
+    updateMenuDisplay();
+
+    // Очищаем текст в элементе "profileTitle" и возвращаем его к "Profile"
+    const profileTitle = document.querySelector("#profileTitle");
+    profileTitle.textContent = "Profile";
 });
 
 // Получаем ссылку на "My profile" и модальное окно профиля
