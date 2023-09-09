@@ -412,13 +412,16 @@ body {
 
 /*Модальное окно профиля*/
 .modal-profile{
+    position: relative;
     display: none;
+
 }
 .modal-profile-content{
-    position: relative;
+    position: fixed;
     width: 600px;
     height: 400px;
-    left: 25%;
+    top: 25%;
+    left: 35%;
     display: flex;
     align-items: center;
     z-index: 2;
@@ -598,7 +601,7 @@ body {
 
 .modal-buy-card{
     position: fixed;
-    left: 25%;
+    left: 35%;
     width: 640px;
     height: 540px;
     display: none;

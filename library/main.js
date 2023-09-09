@@ -366,10 +366,14 @@ function updateMenuDisplay() {
         // Если пользователь авторизован, скрываем форму входа и регистрации, показываем профиль
         dropMenu.style.display = "none";
         dropProfile.style.display = "block";
+        document.querySelector('.find-section-open').style.display = 'none';
+        document.querySelector('.find-section-close').style.display = 'block';
     } else {
         // Если пользователь не авторизован, показываем форму входа и регистрации, скрываем профиль
         dropMenu.style.display = "none";
         dropProfile.style.display = "none";
+        document.querySelector('.find-section-open').style.display = 'block';
+        document.querySelector('.find-section-close').style.display = 'none';
     }
 }
 
@@ -424,9 +428,11 @@ function displayLoginCounter() {
     // Отображаем значение счетчика в элементе
     const visitsElement = document.querySelector(".modal-profile-card-number.visits");
     const visitsElementBottom = document.querySelector(".card-profile-number.visits");
-    if (visitsElement && visitsElementBottom) {
+    const visitesElementBottom = document.querySelector(".card-profile-number.visites");
+    if (visitsElement && visitsElementBottom && visitesElementBottom) {
         visitsElement.textContent = loginCounter.toString();
         visitsElementBottom.textContent = loginCounter.toString();
+        visitesElementBottom.textContent = loginCounter.toString();
     }
 }
 
@@ -467,6 +473,16 @@ loginForm.addEventListener("submit", function (e) {
     if (userData && userData.cardNumber) {
         profileTitle.textContent = userData.cardNumber;
         profileTitle.style.fontSize = "10px"; // Применяем размер шрифта 10px
+    }
+
+    const readerNameInput = document.getElementById('reader-name');
+    const cardNumberInput = document.getElementById('card-number');
+
+// Проверьте, есть ли данные пользователя в localStorage
+    if (userData) {
+        // Если данные есть, установите их в соответствующие поля
+        readerNameInput.value = user.firstName + ' ' + user.lastName;
+        cardNumberInput.value = user.cardNumber;
     }
 
     // После успешной авторизации, скрыть картинку и показать текст
@@ -550,6 +566,12 @@ loginForm.addEventListener("submit", function (e) {
 
     }
 
+    if (isLoggedIn) {
+        // Если пользователь авторизован, отображаем секцию для авторизованных
+        document.getElementById('find-section-open').style.display = 'none';
+        document.getElementById('find-section-close').style.display = 'block';
+    }
+
     // Очищаем поля ввода
     emailInput.value = "";
     passwordInput.value = "";
@@ -578,12 +600,18 @@ loginForm.addEventListener("submit", function (e) {
 });
 
 // Получаем ссылку на "My profile" и модальное окно профиля
-const myProfileLink = document.getElementById("myProfileLink");
+const myProfileLink = document.querySelector(".myProfileLink");
+const myProfileLink2 = document.querySelector(".myProfileLink-2");
 const modalProfile = document.querySelector(".modal-profile");
 const overlay = document.querySelector(".overlay");
 
 // Обработчик для открытия модального окна профиля
 myProfileLink.addEventListener("click", function () {
+    modalProfile.style.display = "block";
+    overlay.style.display = "block";
+});
+
+myProfileLink2.addEventListener("click", function () {
     modalProfile.style.display = "block";
     overlay.style.display = "block";
 });

@@ -40,7 +40,7 @@
                 </div>
                 <div class="drop-menu drop-profile" style="display: none;">
                     <p class="profile-title profile-title-number" id="profileTitle">Profile</p>
-                    <p class="profile-link profile-text profile-in" id="myProfileLink">My profile</p>
+                    <p class="profile-link profile-text profile-in myProfileLink">My profile</p>
                     <p class="profile-link profile-text logout"  id="logoutButton">Log Out</p>
                 </div>
             </div>
@@ -818,31 +818,82 @@
                 </div>
             </div>
         </section>
-        <section id="library" class="section">
+        <section id="library" class="section find-section-open">
+            <div class="section-title">
+                <h2>Digital Library Cards</h2>
+                <hr>
+            </div>
+            <div class="find-section">
+                    <form class="find-form">
+                        <p class="find-title">Find your Library card</p>
+                        <div class="frame-library">
+                            <div class="library-inputs">
+                                <p class="title-input">Brooklyn Public Library</p>
+                                <label>
+                                    <input class="find-input reader-name" type="text" placeholder="Reader's name">
+                                </label>
+                                <label>
+                                    <input class="find-input card-number" type="text" placeholder="Card number">
+                                </label>
+                            </div>
+                            <button type="button" class="check-button">Check the card</button>
+                            <div class="cards-profile-container">
+                                <div class="cards-profile">
+                                    <div class="card-profile">
+                                        <p class="card-profile-text">Visits</p>
+                                        <img src="assets/Union.svg" alt="card-profile-image" class="card-profile-image">
+                                        <p class="card-profile-number visits">23</p>
+                                    </div>
+                                    <div class="card-profile">
+                                        <p class="card-profile-text">Bonuses</p>
+                                        <img src="assets/Star%201.svg" alt="card-profile-image" class="card-profile-image">
+                                        <p class="card-profile-number bonuses">1240</p>
+                                    </div>
+                                    <div class="card-profile">
+                                        <p class="card-profile-text">Books</p>
+                                        <img src="assets/book.svg" alt="card-profile-image" class="card-profile-image">
+                                        <p class="card-profile-number books">2</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                    <div class="login-form">
+                        <p class="reader-title">Get a reader card</p>
+                        <p class="reader-text">You will be able to see a reader card after logging into account, or you can
+                            register a new account</p>
+                        <div class="buttons">
+                            <p class="log-button profile-link open-register">Sign Up</p>
+                            <p class="log-button profile-link open-login">Log in</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section id="library-1" class="section find-section-close">
             <div class="section-title">
                 <h2>Digital Library Cards</h2>
                 <hr>
             </div>
             <div class="find-section">
                 <form class="find-form">
-                    <p class="find-title">Find your Library card</p>
+                    <p class="find-title">Your Library card</p>
                     <div class="frame-library">
                         <div class="library-inputs">
                             <p class="title-input">Brooklyn Public Library</p>
                             <label>
-                                <input class="find-input reader-name" type="text" placeholder="Reader's name">
+                                <input id="reader-name" class="find-input reader-name" type="text" placeholder="Reader's name">
                             </label>
                             <label>
-                                <input class="find-input card-number" type="text" placeholder="Card number">
+                                <input id="card-number" class="find-input card-number" type="text" placeholder="Card number">
                             </label>
                         </div>
-                        <button type="button" class="check-button">Check the card</button>
-                        <div class="cards-profile-container">
+                        <div class="cards-profile-container" style="display: block">
                             <div class="cards-profile">
                                 <div class="card-profile">
                                     <p class="card-profile-text">Visits</p>
                                     <img src="assets/Union.svg" alt="card-profile-image" class="card-profile-image">
-                                    <p class="card-profile-number visits">23</p>
+                                    <p class="card-profile-number visites">23</p>
                                 </div>
                                 <div class="card-profile">
                                     <p class="card-profile-text">Bonuses</p>
@@ -860,12 +911,10 @@
 
                 </form>
                 <div class="login-form">
-                    <p class="reader-title">Get a reader card</p>
-                    <p class="reader-text">You will be able to see a reader card after logging into account, or you can
-                        register a new account</p>
+                    <p class="reader-title">Visit your profile</p>
+                    <p class="reader-text">With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.</p>
                     <div class="buttons">
-                        <p class="log-button profile-link open-register">Sign Up</p>
-                        <p class="log-button profile-link open-login">Log in</p>
+                        <p class="log-button profile-link myProfileLink-2">Profile</p>
                     </div>
                 </div>
             </div>
