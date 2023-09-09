@@ -349,10 +349,14 @@ loginForm.addEventListener("submit", function (e) {
     const email = emailInput.value;
     const password = passwordInput.value;
 
-    // Здесь можно добавить код для отправки данных на сервер и обработки авторизации
     // После успешной авторизации, можно перенаправить пользователя на нужную страницу
     // или выполнить другие действия.
-
+    if (isValidLogin(emailInput, passwordInput)) {
+        // Если вход валиден, выполните действия для успешного входа
+        // Например, установите статус авторизации и перенаправьте на другую страницу
+        isLoggedIn = true;
+        updateMenuDisplay();
+    }
     // Устанавливаем статус как авторизован
     isLoggedIn = true;
 
@@ -736,6 +740,15 @@ function resetUserProfile() {
     cardsProfileContainer.style.display = "none";
 }
 
+
+
+function isValidLogin(email, password) {
+    // Получите данные пользователя из LocalStorage
+    const userData = JSON.parse(localStorage.getItem("user"));
+
+    // Проверьте, существует ли пользователь с указанным email и паролем
+    return userData && userData.email === email && userData.password === password;
+}
 
 
 
