@@ -511,6 +511,37 @@ loginForm.addEventListener("submit", function (e) {
         // Устанавливаем атрибут title на полное имя пользователя, если пользователь авторизован
         iconProfile.setAttribute("title", getFullName(userData));
 
+// Получаем первые заглавные буквы имени и фамилии
+        const firstNameInitial = userData.firstName.charAt(0);
+        const lastNameInitial = userData.lastName.charAt(0);
+
+// Устанавливаем первые заглавные буквы в элемент .modal-profile-icon-text
+        const iconTextElement = document.querySelector(".modal-profile-icon-text");
+        iconTextElement.textContent = `${firstNameInitial}${lastNameInitial}`;
+
+
+// Получаем полное имя пользователя и устанавливаем его в элемент .modal-profile-name-title
+        const fullName = `${userData.firstName} ${userData.lastName}`;
+        const nameTitleElement = document.querySelector(".modal-profile-name-title");
+        nameTitleElement.textContent = fullName;
+
+
+// Получаем cardNumber и устанавливаем его в элемент .modal-profile-number-card
+        const cardNumber = userData.cardNumber;
+        const cardNumberElement = document.querySelector(".modal-profile-number-card");
+        cardNumberElement.textContent = cardNumber;
+
+// Получаем элемент с изображением для копирования
+        const copyIconElement = document.querySelector(".modal-profile-icon-copy");
+
+
+// Добавляем обработчик события для копирования cardNumber при клике на изображение
+        copyIconElement.addEventListener("click", function () {
+            // Копируем cardNumber в буфер обмена
+            const cardNumberToCopy = userData.cardNumber;
+            navigator.clipboard.writeText(cardNumberToCopy);
+        });
+
     }
 
     // Очищаем поля ввода
@@ -569,39 +600,7 @@ overlay.addEventListener("click", function (e) {
 
 
 
-// Получаем данные пользователя из localStorage (предполагая, что они там хранятся)
-const userData = JSON.parse(localStorage.getItem("user"));
 
-// Получаем первые заглавные буквы имени и фамилии
-const firstNameInitial = userData.firstName.charAt(0);
-const lastNameInitial = userData.lastName.charAt(0);
-
-// Устанавливаем первые заглавные буквы в элемент .modal-profile-icon-text
-const iconTextElement = document.querySelector(".modal-profile-icon-text");
-iconTextElement.textContent = `${firstNameInitial}${lastNameInitial}`;
-
-
-// Получаем полное имя пользователя и устанавливаем его в элемент .modal-profile-name-title
-const fullName = `${userData.firstName} ${userData.lastName}`;
-const nameTitleElement = document.querySelector(".modal-profile-name-title");
-nameTitleElement.textContent = fullName;
-
-
-// Получаем cardNumber и устанавливаем его в элемент .modal-profile-number-card
-const cardNumber = userData.cardNumber;
-const cardNumberElement = document.querySelector(".modal-profile-number-card");
-cardNumberElement.textContent = cardNumber;
-
-// Получаем элемент с изображением для копирования
-const copyIconElement = document.querySelector(".modal-profile-icon-copy");
-
-
-// Добавляем обработчик события для копирования cardNumber при клике на изображение
-copyIconElement.addEventListener("click", function () {
-    // Копируем cardNumber в буфер обмена
-    const cardNumberToCopy = userData.cardNumber;
-    navigator.clipboard.writeText(cardNumberToCopy);
-});
 
 const buyButtons = document.querySelectorAll('.card-button');
 const modalBuyCard = document.querySelector('.modal-buy-card');
