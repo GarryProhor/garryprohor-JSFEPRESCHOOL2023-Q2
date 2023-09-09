@@ -311,67 +311,6 @@ function clearForm() {
     document.getElementById("password").value = "";
 }
 
-const checkCardButton = document.querySelector(".check-button");
-const readerNameInput = document.querySelector(".reader-name");
-const cardNumberInput = document.querySelector(".card-number");
-const cardsProfileContainer = document.querySelector(".cards-profile-container");
-
-// Получаем данные пользователя из localStorage
-const user = getUserFromLocalStorage();
-
-// Устанавливаем обработчик события на поле .reader-name
-readerNameInput.addEventListener("blur", function () {
-    if (!readerNameInput.value) {
-        readerNameInput.placeholder = "Reader's name";
-    }
-});
-
-checkCardButton.addEventListener("click", function () {
-    const readerName = readerNameInput.value;
-    const cardNumber = cardNumberInput.value;
-
-    // Проверяем, совпадают ли введенные данные с данными пользователя в localStorage
-    if (user && user.firstName + " " + user.lastName === readerName && user.cardNumber === cardNumber) {
-        // Сохраняем введенные данные
-        // const savedReaderName = readerName;
-        // const savedCardNumber = cardNumber;
-
-        // Скрываем кнопку "Check the card" и показываем контейнер с информацией
-        checkCardButton.style.display = "none";
-        cardsProfileContainer.style.display = "block";
-
-        displayUserProfile(user);
-
-        setTimeout(() => {
-            // После 10 секунд сбрасываем информацию и кнопку, а также очищаем поля формы
-            resetUserProfile();
-            readerNameInput.value = "";
-            cardNumberInput.value = "";
-        }, 10000);
-    }
-});
-
-function getUserFromLocalStorage() {
-    const userData = localStorage.getItem("user");
-    return userData ? JSON.parse(userData) : null;
-}
-
-function displayUserProfile(user) {
-    // Обновляем все элементы .card-profile-number
-    const profileNumbers = document.querySelectorAll(".card-profile-number");
-    profileNumbers.forEach((element) => {
-        const dataType = element.getAttribute("data-type");
-        if (user[dataType]) {
-            element.textContent = user[dataType];
-        }
-    });
-}
-
-function resetUserProfile() {
-    // Сбрасываем информацию о карте и возвращаем кнопку "Check the card"
-    checkCardButton.style.display = "block";
-    cardsProfileContainer.style.display = "none";
-}
 
 
 // Переменная для отслеживания статуса авторизации
@@ -700,6 +639,67 @@ overlay.addEventListener('click', function (e) {
 
 
 
+const checkCardButton = document.querySelector(".check-button");
+const readerNameInput = document.querySelector(".reader-name");
+const cardNumberInput = document.querySelector(".card-number");
+const cardsProfileContainer = document.querySelector(".cards-profile-container");
+
+// Получаем данные пользователя из localStorage
+const user = getUserFromLocalStorage();
+
+// Устанавливаем обработчик события на поле .reader-name
+readerNameInput.addEventListener("blur", function () {
+    if (!readerNameInput.value) {
+        readerNameInput.placeholder = "Reader's name";
+    }
+});
+
+checkCardButton.addEventListener("click", function () {
+    const readerName = readerNameInput.value;
+    const cardNumber = cardNumberInput.value;
+
+    // Проверяем, совпадают ли введенные данные с данными пользователя в localStorage
+    if (user && user.firstName + " " + user.lastName === readerName && user.cardNumber === cardNumber) {
+        // Сохраняем введенные данные
+        // const savedReaderName = readerName;
+        // const savedCardNumber = cardNumber;
+
+        // Скрываем кнопку "Check the card" и показываем контейнер с информацией
+        checkCardButton.style.display = "none";
+        cardsProfileContainer.style.display = "block";
+
+        displayUserProfile(user);
+
+        setTimeout(() => {
+            // После 10 секунд сбрасываем информацию и кнопку, а также очищаем поля формы
+            resetUserProfile();
+            readerNameInput.value = "";
+            cardNumberInput.value = "";
+        }, 10000);
+    }
+});
+
+function getUserFromLocalStorage() {
+    const userData = localStorage.getItem("user");
+    return userData ? JSON.parse(userData) : null;
+}
+
+function displayUserProfile(user) {
+    // Обновляем все элементы .card-profile-number
+    const profileNumbers = document.querySelectorAll(".card-profile-number");
+    profileNumbers.forEach((element) => {
+        const dataType = element.getAttribute("data-type");
+        if (user[dataType]) {
+            element.textContent = user[dataType];
+        }
+    });
+}
+
+function resetUserProfile() {
+    // Сбрасываем информацию о карте и возвращаем кнопку "Check the card"
+    checkCardButton.style.display = "block";
+    cardsProfileContainer.style.display = "none";
+}
 
 
 
