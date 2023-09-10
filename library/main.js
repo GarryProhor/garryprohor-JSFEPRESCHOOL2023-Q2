@@ -750,102 +750,169 @@ function isValidLogin(email, password) {
     return userData && userData.email === email && userData.password === password;
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const cardNumberInput = document.getElementById('cardNumberInput');
+    const expirationInput1 = document.getElementById('expirationInput');
+    const expirationInput2 = document.getElementById('expirationInput-2');
+    const cvcInput = document.getElementById('cvcInput');
+    const buyButton = document.getElementById('buyButton');
+    const modal = document.querySelector('.modal-buy-card');
+    const cardButton = document.querySelector('.card-button');
 
-// Получаем ссылки на все необходимые элементы
-const cardNumbersInput = document.getElementById('cardNumberInput');
-const expirationInput = document.getElementById('expirationInput');
-const expirationInput2 = document.getElementById('expirationInput-2');
-const cvcInput = document.getElementById('cvcInput');
-// const cardholderInput = document.getElementById('cardholderInput');
-// const postalCodeInput = document.getElementById('postalCodeInput');
-// const cityInput = document.getElementById('cityInput');
-const buyButton = document.getElementById('buyButton');
+    let isModalOpen = false;
 
-// Функция для валидации номера карты
-function validateCardNumber() {
-    const cardNumber = cardNumbersInput.value;
-    // Проверяем, что cardNumber содержит 16 цифр
-    const isValid = /^\d{16}$/.test(cardNumber);
-    return isValid;
-}
+    function validateCard() {
+        const cardNumber = cardNumberInput.value.trim();
+        const expiration1 = expirationInput1.value.trim();
+        const expiration2 = expirationInput2.value.trim();
+        const cvc = cvcInput.value.trim();
 
-// Функция для валидации срока действия
-function validateExpiration() {
-    const expiration = expirationInput.value;
-    // Проверяем, что expiration содержит 2 цифры
-    const isValid = /^\d{2}$/.test(expiration);
-    return isValid;
-}
+        if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+            alert('Bank card number should contain 16 digits.');
+            return false;
+        }
 
-function validateExpiration2() {
-    const expiration = expirationInput2.value;
-    // Проверяем, что expiration содержит 2 цифры
-    const isValid = /^\d{2}$/.test(expiration);
-    return isValid;
-}
+        if (expiration1.length !== 2 || expiration2.length !== 2 || !/^\d+$/.test(expiration1) || !/^\d+$/.test(expiration2)) {
+            alert('Expiration code should contain 2 digits each.');
+            return false;
+        }
 
-// Функция для валидации CVC
-function validateCVC() {
-    const cvc = cvcInput.value;
-    // Проверяем, что cvc содержит 3 цифры
-    const isValid = /^\d{3}$/.test(cvc);
-    return isValid;
-}
+        if (cvc.length !== 3 || !/^\d+$/.test(cvc)) {
+            alert('CVC should contain 3 digits.');
+            return false;
+        }
 
-// // Функция для валидации имени держателя карты
-// function validateCardholder() {
-//     const cardholder = cardholderInput.value;
-//     // Проверяем, что cardholder не пустое поле
-//     const isValid = cardholder.trim() !== '';
-//     return isValid;
-// }
-//
-// // Функция для валидации почтового индекса
-// function validatePostalCode() {
-//     const postalCode = postalCodeInput.value;
-//     // Проверяем, что postalCode содержит 6 цифр
-//     const isValid = /^\d{6}$/.test(postalCode);
-//     return isValid;
-// }
-//
-// // Функция для валидации города
-// function validateCity() {
-//     const city = cityInput.value;
-//     // Проверяем, что city содержит только буквы
-//     const isValid = /^[a-zA-Z]+$/.test(city);
-//     return isValid;
-// }
-const cardButton = document.querySelector('.card-button');
-// Добавляем обработчик клика на кнопку "Buy"
-buyButton.addEventListener('click', function () {
-    // Проводим валидацию всех полей
-    const isCardNumberValid = validateCardNumber();
-    const isExpirationValid = validateExpiration();
-    const isExpirationValid2 = validateExpiration2();
-    const isCVCValid = validateCVC();
-    // const isCardholderValid = validateCardholder();
-    // const isPostalCodeValid = validatePostalCode();
-    // const isCityValid = validateCity();
+        return true;
+    }
 
-    // Если все поля валидны, можно продолжить
-    if (isCardNumberValid && isExpirationValid && isExpirationValid2 && isCVCValid) {
-        // Очищаем поля формы (если это необходимо)
-        cardNumbersInput.value = '';
-        expirationInput.value = '';
-        expirationInput2.value = '';
-        cvcInput.value = '';
-        // Меняем текст кнопки на "Own"
-        cardButton.textContent = 'Own';
-        // Добавляем класс "card-button-own"
-        cardButton.classList.add('card-button-own');
-        const modal = document.querySelector('.modal-buy-card');
+    function closeModalAndModifyButton() {
+        if (!isModalOpen && validateCard()) {
+            closeModal(); // Закрываем модальное окно после успешной валидации
+
+            // Добавляем класс и изменяем текст кнопки
+            cardButton.classList.add('card-button-own');
+            cardButton.textContent = 'Own';
+
+            // Устанавливаем флаг, указывающий, что модальное окно открыто
+            isModalOpen = true;
+        }
+    }
+
+    buyButton.addEventListener('click', function () {
+        if (!cardButton.classList.contains('card-button-own')) {
+            closeModalAndModifyButton();
+        }
+    });
+
+    const closeModalButton = document.querySelector('.modal-buy-card-close');
+
+    function closeModal() {
         modal.style.display = 'none';
         overlay.style.display = 'none';
-    } else {
-        // Выводим сообщение об ошибке
-        alert('Please fill in all fields correctly.');
+
+        // Сбрасываем флаг, указывающий, что модальное окно закрыто
+        isModalOpen = false;
     }
+
+    closeModalButton.addEventListener('click', closeModal);
+
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
 });
+
+/*document.addEventListener('DOMContentLoaded', function () {
+    const cardButtons = document.querySelectorAll('.card-button');
+    const modal = document.querySelector('.modal-buy-card');
+    const cardButton = document.querySelector('.card-button-own');
+    const cardNumberInput = document.getElementById('cardNumberInput');
+    const expirationInput1 = document.getElementById('expirationInput');
+    const expirationInput2 = document.getElementById('expirationInput-2');
+    const cvcInput = document.getElementById('cvcInput');
+
+    // Функция валидации карточки
+    function validateCard() {
+        const cardNumber = cardNumberInput.value.trim();
+        const expiration1 = expirationInput1.value.trim();
+        const expiration2 = expirationInput2.value.trim();
+        const cvc = cvcInput.value.trim();
+
+        if (cardNumber.length !== 16 || !/^\d+$/.test(cardNumber)) {
+            alert('Bank card number should contain 16 digits.');
+            return false;
+        }
+
+        if (expiration1.length !== 2 || expiration2.length !== 2 || !/^\d+$/.test(expiration1) || !/^\d+$/.test(expiration2)) {
+            alert('Expiration code should contain 2 digits each.');
+            return false;
+        }
+
+        if (cvc.length !== 3 || !/^\d+$/.test(cvc)) {
+            alert('CVC should contain 3 digits.');
+            return false;
+        }
+
+        return true;
+    }
+
+    // Функция, которая будет вызываться при нажатии на кнопку "Buy"
+    function handleBuyButtonClick(event) {
+        event.preventDefault(); // Предотвращаем стандартное действие кнопки (если оно есть)
+
+        // Выполняем валидацию карточки
+        if (!validateCard()) {
+            return; // Если валидация не прошла, не открываем модальное окно
+        }
+
+        // Открываем модальное окно .modal-buy-card
+        modal.style.display = 'block';
+
+        // Запоминаем, какая кнопка была нажата
+        cardButton.dataset.currentButtonId = event.currentTarget.id;
+    }
+
+    // Функция, которая будет вызываться при закрытии модального окна
+    function closeModal() {
+        modal.style.display = 'none';
+        const currentButtonId = cardButton.dataset.currentButtonId;
+
+        // Проверяем, была ли нажата какая-либо кнопка "Buy"
+        if (currentButtonId) {
+            // Находим кнопку по ID и добавляем ей класс .card-button-own
+            const buttonToOwn = document.getElementById(currentButtonId);
+            if (buttonToOwn) {
+                buttonToOwn.classList.add('card-button-own');
+                buttonToOwn.textContent = 'Own';
+            }
+        }
+
+        // Очищаем данные о текущей кнопке
+        cardButton.dataset.currentButtonId = '';
+    }
+
+    // Назначаем обработчики событий на все кнопки "Buy"
+    cardButtons.forEach(function (button) {
+        button.addEventListener('click', handleBuyButtonClick);
+    });
+
+    // Назначаем обработчик события на закрытие модального окна
+    modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+});*/
+
+
+
+
+
+
+
+
+
 
 
 
